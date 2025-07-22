@@ -13,3 +13,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.register');
 })->name('register');
+
+Route::get('/check-order', function () {
+    return view('pages.check-order');
+})->name('check-order');

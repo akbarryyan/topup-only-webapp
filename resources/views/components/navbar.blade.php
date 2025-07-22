@@ -30,7 +30,7 @@
                             <i class="fas fa-coins text-sm"></i>
                             <span class="text-sm font-medium">Top up</span>
                         </a>
-                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
                             <i class="fas fa-receipt text-sm"></i>
                             <span class="text-sm font-medium">Check Order</span>
                         </a>
