@@ -189,28 +189,48 @@
                                 <div class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center">
                                     <span class="text-black font-bold text-sm">1</span>
                                 </div>
-                                <h3 class="text-xl font-bold text-white">Select Nominal</h3>
+                                <h3 class="text-lg font-semibold text-white">Select Nominal</h3>
                             </div>
                             
                             <!-- Category Tabs -->
                             <div class="mb-4">
                                 <p class="text-gray-400 text-sm mb-3">Sub Category</p>
                                 <div class="flex flex-wrap gap-3">
-                                    <button class="category-btn active flex items-center space-x-2 bg-blue-500/20 border border-blue-500/30 px-4 py-2 rounded-lg transition-colors" data-category="diamond">
-                                        <i class="fas fa-gem text-blue-400"></i>
-                                        <span class="text-blue-400 font-medium">DIAMOND</span>
+                                    <button class="category-btn active flex flex-col items-center space-y-2 bg-transparent border-2 border-orange-500 px-6 py-4 rounded-xl transition-colors relative" data-category="diamond">
+                                        <div class="w-12 h-12 flex items-center justify-center mb-1">
+                                            <img src="{{ asset('assets/images/dm-ml.webp') }}" alt="Diamond" class="w-10 h-10">
+                                        </div>
+                                        <span class="text-white font-semibold text-sm">DIAMOND</span>
+                                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-info text-white text-xs"></i>
+                                        </div>
                                     </button>
-                                    <button class="category-btn flex items-center space-x-2 bg-gray-700/50 border border-gray-600 px-4 py-2 rounded-lg transition-colors hover:bg-purple-500/20 hover:border-purple-500/30" data-category="weekly">
-                                        <i class="fas fa-calendar-week text-gray-400"></i>
-                                        <span class="text-gray-400 font-medium">Weekly Pass</span>
+                                    <button class="category-btn flex flex-col items-center space-y-2 bg-transparent border border-gray-600 px-6 py-4 rounded-xl transition-colors hover:border-purple-500/50 relative" data-category="weekly">
+                                        <div class="w-12 h-12 bg-transparent flex items-center justify-center mb-1">
+                                            <img src="{{ asset('assets/images/weekly-ml.webp') }}" alt="Weekly Pass" class="w-10 h-10">
+                                        </div>
+                                        <span class="text-white font-semibold text-sm">Weekly Pass</span>
+                                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-info text-gray-400 text-xs"></i>
+                                        </div>
                                     </button>
-                                    <button class="category-btn flex items-center space-x-2 bg-gray-700/50 border border-gray-600 px-4 py-2 rounded-lg transition-colors hover:bg-red-500/20 hover:border-red-500/30" data-category="double">
-                                        <i class="fas fa-percentage text-gray-400"></i>
-                                        <span class="text-gray-400 font-medium">Double Topup</span>
+                                    <button class="category-btn flex flex-col items-center space-y-2 bg-transparent border border-gray-600 px-6 py-4 rounded-xl transition-colors hover:border-red-500/50 relative" data-category="double">
+                                        <div class="w-12 h-12 bg-transparent flex items-center justify-center mb-1">
+                                            <img src="{{ asset('assets/images/double-ml.webp') }}" alt="Double Topup" class="w-10 h-10">
+                                        </div>
+                                        <span class="text-white font-semibold text-sm">Double Topup</span>
+                                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-info text-gray-400 text-xs"></i>
+                                        </div>
                                     </button>
-                                    <button class="category-btn flex items-center space-x-2 bg-gray-700/50 border border-gray-600 px-4 py-2 rounded-lg transition-colors hover:bg-purple-500/20 hover:border-purple-500/30" data-category="twilight">
-                                        <i class="fas fa-moon text-gray-400"></i>
-                                        <span class="text-gray-400 font-medium">TWILIGHT PA...</span>
+                                    <button class="category-btn flex flex-col items-center space-y-2 bg-transparent border border-gray-600 px-6 py-4 rounded-xl transition-colors hover:border-purple-500/50 relative" data-category="twilight">
+                                        <div class="w-12 h-12 bg-transparent flex items-center justify-center mb-1">
+                                            <img src="{{ asset('assets/images/twilight-ml.webp') }}" alt="Twilight Pass" class="w-10 h-10">
+                                        </div>
+                                        <span class="text-white font-semibold text-sm">TWILIGHT PA...</span>
+                                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-info text-gray-400 text-xs"></i>
+                                        </div>
                                     </button>
                                 </div>
                             </div>
@@ -558,45 +578,38 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             categoryBtns.forEach(b => {
-                b.classList.remove('active');
-                b.classList.add('bg-gray-700/50', 'border-gray-600');
-                const icon = b.querySelector('i');
+                b.classList.remove('active', 'border-orange-500');
+                b.classList.add('border-gray-600');
+                
+                // Reset text colors
                 const text = b.querySelector('span');
-                icon.classList.remove('text-blue-400', 'text-purple-400', 'text-red-400', 'text-purple-400');
-                icon.classList.add('text-gray-400');
-                text.classList.remove('text-blue-400', 'text-purple-400', 'text-red-400', 'text-purple-400');
+                const infoIcon = b.querySelector('.fas.fa-info');
+                text.classList.remove('text-white');
                 text.classList.add('text-gray-400');
+                infoIcon.classList.remove('text-white');
+                infoIcon.classList.add('text-gray-400');
+                
+                // Reset info icon background
+                const infoBg = infoIcon.parentElement;
+                infoBg.classList.remove('bg-orange-500');
+                infoBg.classList.add('bg-gray-600');
             });
             
-            this.classList.add('active');
-            this.classList.remove('bg-gray-700/50', 'border-gray-600');
+            this.classList.add('active', 'border-orange-500');
+            this.classList.remove('border-gray-600');
             
-            const category = this.dataset.category;
-            const icon = this.querySelector('i');
+            // Set active text colors
             const text = this.querySelector('span');
+            const infoIcon = this.querySelector('.fas.fa-info');
+            text.classList.remove('text-gray-400');
+            text.classList.add('text-white');
+            infoIcon.classList.remove('text-gray-400');
+            infoIcon.classList.add('text-white');
             
-            switch(category) {
-                case 'diamond':
-                    this.classList.add('bg-blue-500/20', 'border-blue-500/30');
-                    icon.classList.add('text-blue-400');
-                    text.classList.add('text-blue-400');
-                    break;
-                case 'weekly':
-                    this.classList.add('bg-purple-500/20', 'border-purple-500/30');
-                    icon.classList.add('text-purple-400');
-                    text.classList.add('text-purple-400');
-                    break;
-                case 'double':
-                    this.classList.add('bg-red-500/20', 'border-red-500/30');
-                    icon.classList.add('text-red-400');
-                    text.classList.add('text-red-400');
-                    break;
-                case 'twilight':
-                    this.classList.add('bg-purple-500/20', 'border-purple-500/30');
-                    icon.classList.add('text-purple-400');
-                    text.classList.add('text-purple-400');
-                    break;
-            }
+            // Set active info icon background
+            const infoBg = infoIcon.parentElement;
+            infoBg.classList.remove('bg-gray-600');
+            infoBg.classList.add('bg-orange-500');
         });
     });
     
@@ -753,9 +766,12 @@ document.addEventListener('DOMContentLoaded', function() {
     @apply text-gray-400 hover:text-white hover:bg-gray-700/50;
 }
 
-.category-btn:not(.active):hover .fas,
+.category-btn:not(.active):hover {
+    @apply border-gray-500;
+}
+
 .category-btn:not(.active):hover span {
-    @apply text-white;
+    @apply text-gray-300;
 }
 
 .diamond-package:hover {
