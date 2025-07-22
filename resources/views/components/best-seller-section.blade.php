@@ -12,13 +12,16 @@
                     
                     <!-- Best Seller Products Grid -->
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-4 lg:gap-6">
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
-                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Mobile Legends" class="w-full h-28 sm:h-32 md:h-36 object-cover" />
+                        <a href="{{ route('product.mobile-legends') }}" class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg hover:border-blue-400 transition-all duration-300 cursor-pointer group relative">
+                            <div class="absolute top-2 left-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                #1 BEST
+                            </div>
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Mobile Legends" class="w-full h-28 sm:h-32 md:h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
                             <div class="p-2 md:p-3">
                                 <h3 class="text-white font-medium text-xs sm:text-sm text-center">Mobile Legends</h3>
-                                <p class="text-gray-400 text-xs text-center mt-1">Diamond</p>
+                                <p class="text-blue-400 font-medium text-xs text-center mt-1">Diamond</p>
                             </div>
-                        </div>
+                        </a>
                         <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
                             <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Roblox" class="w-full h-28 sm:h-32 md:h-36 object-cover" />
                             <div class="p-2 md:p-3">

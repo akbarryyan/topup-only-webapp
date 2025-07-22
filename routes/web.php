@@ -29,3 +29,8 @@ Route::get('/contact', function () {
 Route::get('/calculator', function () {
     return view('pages.calculator');
 })->name('calculator');
+
+// Product routes
+Route::get('/product/mobile-legends', function () {
+    return view('pages.product.mobile-legends');
+})->name('product.mobile-legends');

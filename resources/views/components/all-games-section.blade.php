@@ -5,6 +5,18 @@
                         <button class="text-blue-400 text-xs md:text-sm hover:text-blue-300 transition-colors self-start sm:self-auto">Lihat Semua →</button>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+                        <!-- Mobile Legends - Featured -->
+                        <a href="{{ route('product.mobile-legends') }}" class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg hover:border-blue-400 transition-all duration-300 cursor-pointer relative group">
+                            <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                HOT
+                            </div>
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Mobile Legends" class="h-32 sm:h-36 md:h-40 lg:h-44 w-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                            <div class="p-2 sm:p-3 md:p-4">
+                                <h3 class="text-white font-semibold text-xs sm:text-sm md:text-base">Mobile Legends</h3>
+                                <p class="text-blue-400 text-xs md:text-sm font-medium">Diamond</p>
+                            </div>
+                        </a>
+                        
                         <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
                             <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Roblox" class="h-32 sm:h-36 md:h-40 lg:h-44 w-full object-cover" />
                             <div class="p-2 sm:p-3 md:p-4">
