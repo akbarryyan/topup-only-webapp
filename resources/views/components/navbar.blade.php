@@ -50,7 +50,7 @@
         </header>
 
         <!-- Sidebar Overlay -->
-        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all duration-300"></div>
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 opacity-0 invisible transition-all duration-300"></div>
 
         <!-- Sidebar Menu -->
         <div id="sidebar" class="fixed top-0 right-0 h-full w-80 bg-[#191A1B] border-l border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
@@ -129,12 +129,20 @@
                     sidebar.classList.remove('translate-x-full');
                     sidebarOverlay.classList.remove('opacity-0', 'invisible');
                     document.body.style.overflow = 'hidden';
+                    // Add blur to main content
+                    document.querySelector('main').style.filter = 'blur(4px)';
+                    document.querySelector('header').style.filter = 'blur(4px)';
+                    document.querySelector('footer').style.filter = 'blur(4px)';
                 }
 
                 function closeSidebarFunc() {
                     sidebar.classList.add('translate-x-full');
                     sidebarOverlay.classList.add('opacity-0', 'invisible');
                     document.body.style.overflow = '';
+                    // Remove blur from main content
+                    document.querySelector('main').style.filter = '';
+                    document.querySelector('header').style.filter = '';
+                    document.querySelector('footer').style.filter = '';
                 }
 
                 menuToggle.addEventListener('click', openSidebar);
