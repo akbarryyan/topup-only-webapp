@@ -518,11 +518,116 @@
     </div>
 </div>
 
+<!-- Floating Bottom Footer -->
+<div class="fixed bottom-0 left-0 right-0 z-50 p-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-[#18191A] border border-gray-700 rounded-2xl p-4 shadow-xl">
+            <div class="flex items-center justify-between">
+                <!-- Total Price -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-shopping-cart text-[#F8A208] text-lg"></i>
+                        <span class="text-gray-400 text-sm">:</span>
+                        <span id="totalPrice" class="text-[#F8A208] font-bold text-lg">Rp 0</span>
+                    </div>
+                </div>
+                
+                <!-- Select Voucher and Pay Button -->
+                <div class="flex items-center space-x-3">
+                    <!-- Select Voucher Button -->
+                    <button class="flex items-center space-x-2 bg-transparent border border-[#F8A208] text-[#F8A208] px-4 py-2 rounded-lg hover:bg-[#F8A208]/10 transition-colors" onclick="toggleVoucherModal()">
+                        <span class="text-sm font-medium">Select Voucher</span>
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+                    
+                    <!-- Pay Now Button -->
+                    <button id="payNowBtn" class="bg-[#F8A208] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#E6940B] transition-colors disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed" disabled>
+                        Pay Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Voucher Modal -->
+<div id="voucherModal" class="fixed inset-0 bg-black/50 z-50 hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-[#18191A] rounded-2xl p-6 max-w-md w-full border border-gray-700">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-bold text-white">Select Voucher</h3>
+                <button onclick="toggleVoucherModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-3">
+                <!-- No Voucher Option -->
+                <div class="voucher-option active flex items-center justify-between p-3 border border-gray-600 rounded-lg cursor-pointer hover:border-[#F8A208] transition-colors" data-discount="0" data-name="No Voucher">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-gray-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-times text-gray-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">No Voucher</h4>
+                            <p class="text-gray-400 text-sm">0% discount</p>
+                        </div>
+                    </div>
+                    <div class="w-4 h-4 border-2 border-gray-600 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-[#F8A208] rounded-full hidden voucher-selected"></div>
+                    </div>
+                </div>
+                
+                <!-- Sample Vouchers -->
+                <div class="voucher-option flex items-center justify-between p-3 border border-gray-600 rounded-lg cursor-pointer hover:border-[#F8A208] transition-colors" data-discount="5" data-name="NEWUSER5">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-ticket-alt text-blue-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">NEWUSER5</h4>
+                            <p class="text-gray-400 text-sm">5% discount</p>
+                        </div>
+                    </div>
+                    <div class="w-4 h-4 border-2 border-gray-600 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-[#F8A208] rounded-full hidden voucher-selected"></div>
+                    </div>
+                </div>
+                
+                <div class="voucher-option flex items-center justify-between p-3 border border-gray-600 rounded-lg cursor-pointer hover:border-[#F8A208] transition-colors" data-discount="10" data-name="WELCOME10">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-gift text-green-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">WELCOME10</h4>
+                            <p class="text-gray-400 text-sm">10% discount</p>
+                        </div>
+                    </div>
+                    <div class="w-4 h-4 border-2 border-gray-600 rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-[#F8A208] rounded-full hidden voucher-selected"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex space-x-3">
+                <button onclick="toggleVoucherModal()" class="flex-1 bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                    Cancel
+                </button>
+                <button onclick="applyVoucher()" class="flex-1 bg-[#F8A208] text-black py-2 rounded-lg hover:bg-[#E6940B] transition-colors">
+                    Apply
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- JavaScript -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let selectedPackage = null;
     let selectedPaymentMethod = 'system';
+    let selectedVoucher = { discount: 0, name: 'No Voucher' };
     
     // Tab functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -630,8 +735,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateTotalPrice() {
         const totalPriceElement = document.getElementById('totalPrice');
         if (selectedPackage) {
-            const price = parseInt(selectedPackage.price);
-            totalPriceElement.textContent = 'Rp ' + price.toLocaleString('id-ID');
+            const originalPrice = parseInt(selectedPackage.price);
+            const discount = (originalPrice * selectedVoucher.discount) / 100;
+            const finalPrice = originalPrice - discount;
+            totalPriceElement.textContent = 'Rp ' + finalPrice.toLocaleString('id-ID');
         } else {
             totalPriceElement.textContent = 'Rp 0';
         }
@@ -649,6 +756,41 @@ document.addEventListener('DOMContentLoaded', function() {
             payBtn.disabled = true;
         }
     }
+    
+    // Voucher Modal Functions
+    window.toggleVoucherModal = function() {
+        const modal = document.getElementById('voucherModal');
+        modal.classList.toggle('hidden');
+    }
+    
+    window.applyVoucher = function() {
+        const selectedVoucherOption = document.querySelector('.voucher-option.active');
+        if (selectedVoucherOption) {
+            selectedVoucher = {
+                discount: parseInt(selectedVoucherOption.dataset.discount),
+                name: selectedVoucherOption.dataset.name
+            };
+            updateTotalPrice();
+            toggleVoucherModal();
+        }
+    }
+    
+    // Voucher Selection
+    document.querySelectorAll('.voucher-option').forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from all options
+            document.querySelectorAll('.voucher-option').forEach(opt => {
+                opt.classList.remove('active', 'border-[#F8A208]');
+                opt.classList.add('border-gray-600');
+                opt.querySelector('.voucher-selected').classList.add('hidden');
+            });
+            
+            // Add active class to selected option
+            this.classList.add('active', 'border-[#F8A208]');
+            this.classList.remove('border-gray-600');
+            this.querySelector('.voucher-selected').classList.remove('hidden');
+        });
+    });
     
     // Form validation
     const userIdSelect = document.getElementById('userIdSelect');
