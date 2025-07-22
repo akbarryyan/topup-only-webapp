@@ -10,22 +10,6 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl"></div>
                 </div>
 
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-3 gap-3">
-                    <div class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4 text-center hover:bg-gray-800/80 transition-colors duration-300">
-                        <div class="text-xl md:text-2xl font-bold text-white mb-1">24/7</div>
-                        <div class="text-gray-300 text-xs md:text-sm">Online</div>
-                    </div>
-                    <div class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4 text-center hover:bg-gray-800/80 transition-colors duration-300">
-                        <div class="text-xl md:text-2xl font-bold text-white mb-1">1M+</div>
-                        <div class="text-gray-300 text-xs md:text-sm">Transaksi</div>
-                    </div>
-                    <div class="bg-gray-800/60 border border-gray-700/50 rounded-lg p-4 text-center hover:bg-gray-800/80 transition-colors duration-300">
-                        <div class="text-xl md:text-2xl font-bold text-white mb-1">100%</div>
-                        <div class="text-gray-300 text-xs md:text-sm">Aman</div>
-                    </div>
-                </div>
-
                 <!-- Best Seller Section -->
                 <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
                     <div class="flex items-center justify-between mb-6">
