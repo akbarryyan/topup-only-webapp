@@ -34,10 +34,9 @@
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div class="space-y-4">
                             <div class="flex items-center space-x-2">
-                                <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-trophy text-black text-sm"></i>
+                                <div class="flex items-center justify-center">
+                                    <img src="{{ asset('assets/images/logo.webp') }}" alt="PI TOPUP Logo" class="h-8">
                                 </div>
-                                <span class="text-white font-bold text-lg">PI TOPUP</span>
                             </div>
                             <p class="text-gray-400 text-sm">Platform top up game digital terpercaya dengan harga termurah dan proses tercepat.</p>
                             <div class="flex space-x-4">
