@@ -30,11 +30,11 @@
                             <i class="fas fa-coins text-sm"></i>
                             <span class="text-sm font-medium">Top up</span>
                         </a>
-                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 {{ request()->routeIs('check-order') ? 'text-orange-400 bg-orange-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('check-order') ? 'hover:bg-blue-400/20' : 'hover:bg-gray-700/30' }}">
+                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 {{ request()->routeIs('check-order') ? 'text-blue-400 bg-blue-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('check-order') ? 'hover:bg-blue-400/20' : 'hover:bg-gray-700/30' }}">
                             <i class="fas fa-receipt text-sm"></i>
                             <span class="text-sm font-medium">Check Order</span>
                         </a>
-                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                        <a href="{{ route('news') }}" class="flex items-center space-x-2 {{ request()->routeIs('news') ? 'text-green-400 bg-green-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('news') ? 'hover:bg-green-400/20' : 'hover:bg-gray-700/30' }}">
                             <i class="fas fa-newspaper text-sm"></i>
                             <span class="text-sm font-medium">News</span>
                         </a>
@@ -134,8 +134,12 @@
                         <span class="text-white group-hover:text-green-400 transition-colors">Promo</span>
                     </a>
                     <a href="{{ route('check-order') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg {{ request()->routeIs('check-order') ? 'bg-blue-400/20 border border-blue-400/30' : 'hover:bg-gray-800' }} transition-colors group">
-                        <i class="fas fa-history {{ request()->routeIs('check-order') ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-400' }} transition-colors"></i>
+                        <i class="fas fa-receipt {{ request()->routeIs('check-order') ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-400' }} transition-colors"></i>
                         <span class="{{ request()->routeIs('check-order') ? 'text-blue-400' : 'text-white group-hover:text-blue-400' }} transition-colors">Check Order</span>
+                    </a>
+                    <a href="{{ route('news') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg {{ request()->routeIs('news') ? 'bg-green-400/20 border border-green-400/30' : 'hover:bg-gray-800' }} transition-colors group">
+                        <i class="fas fa-newspaper {{ request()->routeIs('news') ? 'text-green-400' : 'text-gray-400 group-hover:text-green-400' }} transition-colors"></i>
+                        <span class="{{ request()->routeIs('news') ? 'text-green-400' : 'text-white group-hover:text-green-400' }} transition-colors">News & Updates</span>
                     </a>
                     <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
                         <i class="fas fa-headset text-gray-400 group-hover:text-blue-400 transition-colors"></i>

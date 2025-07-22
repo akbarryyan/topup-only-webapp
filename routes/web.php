@@ -17,3 +17,7 @@ Route::get('/register', function () {
 Route::get('/check-order', function () {
     return view('pages.check-order');
 })->name('check-order');
+
+Route::get('/news', function () {
+    return view('pages.news');
+})->name('news');
