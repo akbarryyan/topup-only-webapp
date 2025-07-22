@@ -16,20 +16,7 @@
 
                 <x-all-games-section />
 
-                <!-- Voucher Section -->
-                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-white">VOUCHER</h2>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/steam.jpg') }}" alt="Steam Wallet" class="h-40 w-full object-cover" />
-                        </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/steam.jpg') }}" alt="Google Play" class="h-40 w-full object-cover" />
-                        </div>
-                    </div>
-                </div>
+                <x-voucher-section />
 
                 <!-- News Section -->
                 <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
