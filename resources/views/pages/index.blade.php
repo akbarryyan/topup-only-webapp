@@ -77,7 +77,7 @@
                         <h2 class="text-xl font-bold text-white">SPECIALIST MLBB</h2>
                         <span class="text-blue-400 text-sm">Diamond • Starlight • Weekly Pass</span>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-2 gap-4">
                         <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
                             <img src="{{ asset('assets/images/ml.jpg') }}" alt="MLBB Diamond" class="h-48 w-full object-cover" />
                             <div class="p-4">
@@ -90,13 +90,6 @@
                             <div class="p-4">
                                 <h3 class="text-white font-semibold">Starlight Member</h3>
                                 <p class="text-gray-300 text-sm">Rp 95.000/bulan</p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Weekly Pass" class="h-48 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Weekly Pass</h3>
-                                <p class="text-gray-300 text-sm">Rp 22.500/minggu</p>
                             </div>
                         </div>
                     </div>
@@ -114,10 +107,6 @@
                             <div class="p-4">
                                 <h3 class="text-white font-semibold">Roblox</h3>
                                 <p class="text-gray-400 text-sm">Robux</p>
-                                <div class="flex items-center mt-2">
-                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
-                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
-                                </div>
                             </div>
                         </div>
                         <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
@@ -125,10 +114,6 @@
                             <div class="p-4">
                                 <h3 class="text-white font-semibold">Free Fire</h3>
                                 <p class="text-gray-400 text-sm">Diamond</p>
-                                <div class="flex items-center mt-2">
-                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
-                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
-                                </div>
                             </div>
                         </div>
                         <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
@@ -136,10 +121,6 @@
                             <div class="p-4">
                                 <h3 class="text-white font-semibold">Genshin Impact</h3>
                                 <p class="text-gray-400 text-sm">Genesis Crystal</p>
-                                <div class="flex items-center mt-2">
-                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
-                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
-                                </div>
                             </div>
                         </div>
                     </div>
