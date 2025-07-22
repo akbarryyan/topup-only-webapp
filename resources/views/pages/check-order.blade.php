@@ -95,8 +95,9 @@
                 </div>
             </div>
 
-            <!-- Transactions Table -->
-            <div class="overflow-x-auto">
+            <!-- Transactions Content -->
+            <!-- Desktop Table View -->
+            <div class="hidden md:block overflow-x-auto">
                 <table class="w-full">
                     <thead class="bg-gray-800/50">
                         <tr>
@@ -123,16 +124,23 @@
                 </table>
             </div>
 
+            <!-- Mobile Card View -->
+            <div class="md:hidden" id="transactionsMobileContainer">
+                <div id="transactionsMobileList" class="space-y-4 p-4">
+                    <!-- Transaction cards will be populated here -->
+                </div>
+            </div>
+
             <!-- Empty State -->
-            <div id="emptyState" class="hidden p-12 text-center">
-                <div class="text-gray-400 text-6xl mb-4">
+            <div id="emptyState" class="hidden p-8 md:p-12 text-center">
+                <div class="text-gray-400 text-4xl md:text-6xl mb-4">
                     <i class="fas fa-inbox"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-2">Belum Ada Transaksi</h3>
-                <p class="text-gray-400 mb-6">Mulai melakukan top up game favorit Anda sekarang!</p>
+                <h3 class="text-lg md:text-xl font-semibold text-white mb-2">Belum Ada Transaksi</h3>
+                <p class="text-gray-400 text-sm md:text-base mb-6">Mulai melakukan top up game favorit Anda sekarang!</p>
                 <a 
                     href="{{ url('/') }}" 
-                    class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105"
+                    class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 text-sm"
                 >
                     <i class="fas fa-plus mr-2"></i>
                     Mulai Top Up
@@ -259,16 +267,19 @@
 
     function populateTransactions(transactions = sampleTransactions) {
         const tableBody = document.getElementById('transactionsTableBody');
+        const mobileList = document.getElementById('transactionsMobileList');
         const emptyState = document.getElementById('emptyState');
         
         if (transactions.length === 0) {
             tableBody.innerHTML = '';
+            mobileList.innerHTML = '';
             emptyState.classList.remove('hidden');
             return;
         }
         
         emptyState.classList.add('hidden');
         
+        // Populate desktop table
         tableBody.innerHTML = transactions.map((transaction, index) => `
             <tr class="hover:bg-gray-800/50 transition-colors duration-200 animate-fade-in-up" style="animation-delay: ${index * 0.1}s">
                 <td class="px-6 py-4 whitespace-nowrap">
@@ -289,6 +300,58 @@
                     ${getStatusBadge(transaction.status)}
                 </td>
             </tr>
+        `).join('');
+        
+        // Populate mobile cards
+        mobileList.innerHTML = transactions.map((transaction, index) => `
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-600 transition-all duration-300 animate-fade-in-up" style="animation-delay: ${index * 0.1}s">
+                <!-- Header with Status -->
+                <div class="flex items-center justify-between mb-3">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-gamepad text-blue-400 text-sm"></i>
+                        <span class="text-white font-medium text-sm">${transaction.category}</span>
+                    </div>
+                    ${getStatusBadge(transaction.status)}
+                </div>
+                
+                <!-- Transaction Details -->
+                <div class="space-y-2">
+                    <!-- Invoice & Date -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-receipt text-gray-400 text-xs"></i>
+                            <span class="text-gray-400 text-xs">Invoice:</span>
+                        </div>
+                        <span class="text-white font-mono text-xs bg-gray-700/50 px-2 py-1 rounded">${transaction.invoice}</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-calendar text-gray-400 text-xs"></i>
+                            <span class="text-gray-400 text-xs">Tanggal:</span>
+                        </div>
+                        <span class="text-gray-300 text-xs">${transaction.date}</span>
+                    </div>
+                    
+                    <!-- Product Details -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-gift text-gray-400 text-xs"></i>
+                            <span class="text-gray-400 text-xs">Produk:</span>
+                        </div>
+                        <span class="text-gray-300 text-xs text-right">${transaction.details}</span>
+                    </div>
+                    
+                    <!-- Price -->
+                    <div class="flex items-center justify-between pt-2 border-t border-gray-700">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-money-bill text-green-400 text-xs"></i>
+                            <span class="text-gray-400 text-xs">Total:</span>
+                        </div>
+                        <span class="text-blue-400 font-bold text-sm">${transaction.price}</span>
+                    </div>
+                </div>
+            </div>
         `).join('');
         
         updateStatistics(transactions);
