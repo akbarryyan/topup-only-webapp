@@ -3,7 +3,7 @@
 @section('title', 'Mobile Legends: Bang Bang - Diamond Top Up')
 
 @section('content')
-<div class="min-h-screen">
+<div class="min-h-screen mt-8">
     <!-- Product Header -->
     <div class="bg-transparent backdrop-blur-sm border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 py-4 lg:py-6">
