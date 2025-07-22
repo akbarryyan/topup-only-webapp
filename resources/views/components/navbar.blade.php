@@ -22,6 +22,32 @@
 
                 <!-- Navigation -->
                 <div class="flex items-center space-x-3">
+                    <!-- Desktop Menu -->
+                    <nav class="hidden lg:flex items-center space-x-6 mr-6">
+                        <a href="#" class="flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-orange-400/10">
+                            <i class="fas fa-coins text-sm"></i>
+                            <span class="text-sm font-medium">Top up</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                            <i class="fas fa-receipt text-sm"></i>
+                            <span class="text-sm font-medium">Check Order</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                            <i class="fas fa-newspaper text-sm"></i>
+                            <span class="text-sm font-medium">News</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                            <i class="fas fa-calculator text-sm"></i>
+                            <span class="text-sm font-medium">Calculator</span>
+                        </a>
+                    </nav>
+
+                    <!-- Login Button (Desktop) -->
+                    <button class="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25 border border-blue-500/20">
+                        <i class="fas fa-sign-in-alt text-sm"></i>
+                        <span class="text-sm font-semibold">Login</span>
+                    </button>
+
                     <!-- Search Button (Mobile) -->
                     <button
                         class="md:hidden bg-transparent border border-gray-600 hover:bg-gray-600 py-2 px-4 rounded-full transition-colors"
@@ -41,8 +67,8 @@
                         <i class="fas fa-chevron-down text-gray-400 text-xs ml-1"></i>
                     </div>
 
-                    <!-- Menu Button -->
-                    <button id="menuToggle" class="bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
+                    <!-- Menu Button (Mobile/Tablet only) -->
+                    <button id="menuToggle" class="lg:hidden bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
                         <i class="fas fa-bars text-sm group-hover:text-white"></i>
                     </button>
                 </div>
