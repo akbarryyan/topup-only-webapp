@@ -143,7 +143,7 @@
                 <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6">
                     <!-- Tab Navigation -->
                     <div class="flex space-x-1 mb-6 bg-transparent rounded-lg p-1">
-                        <button class="tab-btn active flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors" data-tab="topup">
+                        <button class="tab-btn active flex-1 py-2 px-4 text-sm font-medium transition-colors" data-tab="topup">
                             <i class="fas fa-bolt mr-2"></i>
                             Top up
                         </button>
@@ -403,44 +403,46 @@
                         <div class="mb-8">
                             <div class="flex items-center space-x-2 mb-4">
                                 <div class="w-8 h-8 bg-[#F8A208] rounded-lg flex items-center justify-center">
-                                    <span class="text-white font-semibold text-sm">2</span>
+                                    <span class="text-white font-bold text-sm">2</span>
                                 </div>
-                                <h3 class="text-lg font-semibold text-white">Select Payment Method</h3>
+                                <h3 class="text-xl font-bold text-white">Select Payment Method</h3>
                             </div>
                             
                             <div class="flex flex-wrap gap-3 mb-6">
-                                <button class="payment-method active bg-yellow-500 text-black px-4 py-2 rounded-lg font-medium transition-colors" data-method="system">
+                                <button class="payment-method active bg-[#F8A208] text-black px-6 py-3 rounded-full font-semibold transition-colors" data-method="system">
                                     System
                                 </button>
-                                <button class="payment-method bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors" data-method="qris">
+                                <button class="payment-method bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-600/30 px-6 py-3 rounded-full font-semibold transition-colors" data-method="qris">
                                     QRIS
                                 </button>
-                                <button class="payment-method bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors" data-method="ewallet">
+                                <button class="payment-method bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-600/30 px-6 py-3 rounded-full font-semibold transition-colors" data-method="ewallet">
                                     E-Wallet
                                 </button>
-                                <button class="payment-method bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors" data-method="virtual">
+                                <button class="payment-method bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-600/30 px-6 py-3 rounded-full font-semibold transition-colors" data-method="virtual">
                                     Virtual Account
                                 </button>
-                                <button class="payment-method bg-gray-700 text-gray-300 hover:bg-gray-600 px-4 py-2 rounded-lg font-medium transition-colors" data-method="gerai">
+                                <button class="payment-method bg-transparent border border-gray-600 text-gray-300 hover:bg-gray-600/30 px-6 py-3 rounded-full font-semibold transition-colors" data-method="gerai">
                                     Gerai Ritel
                                 </button>
                             </div>
                             
                             <!-- Credits Info -->
-                            <div class="bg-transparent rounded-lg p-4 border border-gray-700">
+                            <div class="bg-[#18191A] rounded-lg p-4 border border-gray-700">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-3">
-                                        <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                                        <div class="w-10 h-10 bg-[#F8A208] rounded-full flex items-center justify-center">
                                             <i class="fas fa-coins text-black text-sm"></i>
                                         </div>
                                         <div>
-                                            <h4 class="text-white font-medium">PiCredits</h4>
-                                            <p class="text-red-400 text-sm">Rp 0</p>
+                                            <h4 class="text-white font-semibold text-lg">PiCredits</h4>
+                                            <p class="text-red-400 text-sm font-medium">Rp 0</p>
                                         </div>
                                     </div>
-                                    <div class="bg-purple-600/20 border border-purple-500/30 px-3 py-2 rounded-lg">
-                                        <p class="text-purple-400 text-sm font-medium">No admin fee</p>
-                                    </div>
+                                </div>
+                                
+                                <!-- No admin fee banner -->
+                                <div class="mt-3 bg-gradient-to-r from-purple-900/50 to-purple-800/50 border border-purple-600/30 px-4 py-3 rounded-lg">
+                                    <p class="text-purple-300 text-sm font-medium">No admin fee</p>
                                 </div>
                             </div>
                         </div>
@@ -449,22 +451,29 @@
                         <div class="mb-8">
                             <div class="flex items-center space-x-2 mb-4">
                                 <div class="w-8 h-8 bg-[#F8A208] rounded-lg flex items-center justify-center">
-                                    <span class="text-white font-semibold text-sm">3</span>
+                                    <span class="text-white font-bold text-sm">3</span>
                                 </div>
                                 <h3 class="text-xl font-bold text-white">Contactable contact</h3>
                             </div>
                             
                             <div class="space-y-4">
-                                <div>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone text-gray-400"></i>
+                                    </div>
                                     <input type="tel" 
                                            id="phoneNumber" 
                                            placeholder="Enter phone number" 
-                                           class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
+                                           class="w-full bg-transparent border border-gray-600 rounded-lg pl-10 pr-4 py-4 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
                                 </div>
-                                <p class="text-gray-400 text-sm flex items-center space-x-2">
-                                    <i class="fas fa-info-circle"></i>
-                                    <span>This number will be contacted if a problem occurs.</span>
-                                </p>
+                                
+                                <!-- Info message with styled border -->
+                                <div class="border border-gray-600 rounded-lg p-4 bg-transparent">
+                                    <p class="text-gray-400 text-sm flex items-center space-x-2">
+                                        <i class="fas fa-info-circle text-gray-500"></i>
+                                        <span>This number will be contacted if a problem occurs.</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -525,10 +534,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update active tab button
             tabBtns.forEach(b => {
-                b.classList.remove('active', 'bg-blue-500', 'text-white');
+                b.classList.remove('active', 'border-b', 'border-[#F8A208]','text-white');
                 b.classList.add('text-gray-400');
             });
-            this.classList.add('active', 'bg-blue-500', 'text-white');
+            this.classList.add('active', 'border-b', 'border-[#F8A208]','text-white');
             this.classList.remove('text-gray-400');
             
             // Show corresponding content
@@ -606,12 +615,12 @@ document.addEventListener('DOMContentLoaded', function() {
     paymentMethods.forEach(method => {
         method.addEventListener('click', function() {
             paymentMethods.forEach(m => {
-                m.classList.remove('active', 'bg-yellow-500', 'text-black');
-                m.classList.add('bg-gray-700', 'text-gray-300');
+                m.classList.remove('active', 'bg-[#F8A208]', 'text-black');
+                m.classList.add('bg-transparent', 'border', 'border-gray-600', 'text-gray-300');
             });
             
-            this.classList.add('active', 'bg-yellow-500', 'text-black');
-            this.classList.remove('bg-gray-700', 'text-gray-300');
+            this.classList.add('active', 'bg-[#F8A208]', 'text-black');
+            this.classList.remove('bg-transparent', 'border', 'border-gray-600', 'text-gray-300');
             
             selectedPaymentMethod = this.dataset.method;
         });
@@ -723,8 +732,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize active tab
-    document.querySelector('.tab-btn[data-tab="topup"]').classList.add('active', 'bg-blue-500', 'text-white');
-    document.querySelector('.tab-btn[data-tab="topup"]').classList.remove('text-gray-400');
+    document.querySelector('.tab-btn[data-tab="topup"]').classList.add('active', 'border-b', 'border-[#F8A208]','text-white');
+    document.querySelector('.tab-btn[data-tab="topup"]').classList.remove('text-white');
 });
 </script>
 
