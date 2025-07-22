@@ -42,9 +42,110 @@
                     </div>
 
                     <!-- Menu Button -->
-                    <button class="bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
+                    <button id="menuToggle" class="bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
                         <i class="fas fa-bars text-sm group-hover:text-white"></i>
                     </button>
                 </div>
             </div>
         </header>
+
+        <!-- Sidebar Overlay -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all duration-300"></div>
+
+        <!-- Sidebar Menu -->
+        <div id="sidebar" class="fixed top-0 right-0 h-full w-80 bg-[#191A1B] border-l border-gray-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+            <!-- Sidebar Header -->
+            <div class="flex items-center justify-between p-4 border-b border-gray-800">
+                <div class="flex items-center space-x-2">
+                    <img src="{{ asset('assets/images/logo.webp') }}" alt="Logo" class="h-6" />
+                </div>
+                <button id="closeSidebar" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Sidebar Content -->
+            <div class="px-3 py-4 space-y-6">
+                <!-- User Section -->
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">Guest User</h3>
+                            <p class="text-gray-400 text-sm">Masuk untuk pengalaman terbaik</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors">
+                            Masuk
+                        </button>
+                        <button class="flex-1 bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors">
+                            Daftar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Menu Items -->
+                <nav class="space-y-2">
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-home text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-blue-400 transition-colors">Beranda</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-gamepad text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-blue-400 transition-colors">Semua Game</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-fire text-gray-400 group-hover:text-orange-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-orange-400 transition-colors">Best Seller</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-gift text-gray-400 group-hover:text-green-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-green-400 transition-colors">Promo</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-history text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-blue-400 transition-colors">Riwayat Transaksi</span>
+                    </a>
+                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                        <i class="fas fa-headset text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+                        <span class="text-white group-hover:text-blue-400 transition-colors">Bantuan</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- JavaScript for Sidebar -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.getElementById('menuToggle');
+                const sidebar = document.getElementById('sidebar');
+                const sidebarOverlay = document.getElementById('sidebarOverlay');
+                const closeSidebar = document.getElementById('closeSidebar');
+
+                function openSidebar() {
+                    sidebar.classList.remove('translate-x-full');
+                    sidebarOverlay.classList.remove('opacity-0', 'invisible');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeSidebarFunc() {
+                    sidebar.classList.add('translate-x-full');
+                    sidebarOverlay.classList.add('opacity-0', 'invisible');
+                    document.body.style.overflow = '';
+                }
+
+                menuToggle.addEventListener('click', openSidebar);
+                closeSidebar.addEventListener('click', closeSidebarFunc);
+                sidebarOverlay.addEventListener('click', closeSidebarFunc);
+
+                // Close sidebar on escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeSidebarFunc();
+                    }
+                });
+            });
+        </script>
