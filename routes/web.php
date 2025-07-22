@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', function () {
     return view('pages.index');
@@ -35,37 +36,14 @@ Route::get('/product/mobile-legends', function () {
     return view('pages.product.mobile-legends');
 })->name('product.mobile-legends');
 
-// Admin routes with prefix
+// Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('pages.admin.dashboard');
-    })->name('dashboard');
-    
-    Route::get('/products', function () {
-        return view('pages.admin.products');
-    })->name('products');
-    
-    Route::get('/orders', function () {
-        return view('pages.admin.orders');
-    })->name('orders');
-    
-    Route::get('/users', function () {
-        return view('pages.admin.users');
-    })->name('users');
-    
-    Route::get('/reports', function () {
-        return view('pages.admin.reports');
-    })->name('reports');
-    
-    Route::get('/settings', function () {
-        return view('pages.admin.settings');
-    })->name('settings');
-    
-    Route::get('/transactions', function () {
-        return view('pages.admin.transactions');
-    })->name('transactions');
-    
-    Route::get('/analytics', function () {
-        return view('pages.admin.analytics');
-    })->name('analytics');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/products', function () { return view('pages.admin.products'); })->name('products');
+    Route::get('/orders', function () { return view('pages.admin.orders'); })->name('orders');
+    Route::get('/users', function () { return view('pages.admin.users'); })->name('users');
+    Route::get('/reports', function () { return view('pages.admin.reports'); })->name('reports');
+    Route::get('/settings', function () { return view('pages.admin.settings'); })->name('settings');
+    Route::get('/transactions', function () { return view('pages.admin.transactions'); })->name('transactions');
+    Route::get('/analytics', function () { return view('pages.admin.analytics'); })->name('analytics');
 });
