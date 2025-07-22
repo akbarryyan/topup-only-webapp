@@ -541,7 +541,7 @@
                     </button>
                     
                     <!-- Pay Now Button -->
-                    <button id="payNowBtn" class="bg-[#F8A208] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#E6940B] transition-colors disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed" disabled>
+                    <button id="payNowBtn" class="bg-[#F8A208] text-black px-6 py-3 rounded-lg font-semibold hover:bg-[#E6940B] transition-colors disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:bg-gray-600" disabled>
                         Pay Now
                     </button>
                 </div>
@@ -824,6 +824,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Pay Now button
     document.getElementById('payNowBtn').addEventListener('click', function() {
         if (!this.disabled) {
+            // Add loading class and disable button
+            this.classList.add('loading');
+            this.disabled = true;
+            this.textContent = 'Processing...';
+            
             // Show success toast
             showToast('Order processed! Redirecting to payment...', 'success');
             
@@ -838,6 +843,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     paymentMethod: selectedPaymentMethod,
                     phone: document.getElementById('phoneNumber').value
                 });
+                
+                // Reset button state (in real app, this would redirect)
+                this.classList.remove('loading');
+                this.disabled = false;
+                this.textContent = 'Pay Now';
+                updateTotalPrice(); // Re-validate form
             }, 2000);
         }
     });
@@ -903,22 +914,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Loading animation for pay button */
 #payNowBtn:disabled {
-    position: relative;
-    pointer-events: none;
+    @apply bg-gray-600 text-gray-400 cursor-not-allowed;
 }
 
-#payNowBtn:disabled::after {
+#payNowBtn.loading {
+    position: relative;
+}
+
+#payNowBtn.loading::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
     border: 2px solid transparent;
-    border-top: 2px solid #000;
+    border-top: 2px solid currentColor;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    opacity: 0.7;
 }
 
 @keyframes spin {
