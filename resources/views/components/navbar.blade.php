@@ -3,7 +3,9 @@
             <div class="max-w-7xl mx-auto flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="{{ asset('assets/images/logo.webp') }}" alt="PI TOPUP" class="h-6" />
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/images/logo.webp') }}" alt="PI TOPUP" class="h-6 hover:scale-105 transition-transform duration-300" />
+                    </a>
                 </div>
 
                 <!-- Search Bar (Desktop) -->
@@ -24,7 +26,7 @@
                 <div class="flex items-center space-x-3">
                     <!-- Desktop Menu -->
                     <nav class="hidden lg:flex items-center space-x-6 mr-6">
-                        <a href="#" class="flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-orange-400/10">
+                        <a href="{{ url('/') }}" class="flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-orange-400/10">
                             <i class="fas fa-coins text-sm"></i>
                             <span class="text-sm font-medium">Top up</span>
                         </a>
@@ -43,10 +45,10 @@
                     </nav>
 
                     <!-- Login Button (Desktop) -->
-                    <button class="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25 border border-blue-500/20">
+                    <a href="{{ route('login') }}" class="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25 border border-blue-500/20">
                         <i class="fas fa-sign-in-alt text-sm"></i>
                         <span class="text-sm font-semibold">Login</span>
-                    </button>
+                    </a>
 
                     <!-- Search Button (Mobile) -->
                     <button
@@ -104,18 +106,18 @@
                         </div>
                     </div>
                     <div class="flex space-x-2">
-                        <button class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors">
+                        <a href="{{ route('login') }}" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
                             Masuk
-                        </button>
-                        <button class="flex-1 bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors">
+                        </a>
+                        <a href="{{ route('register') }}" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
                             Daftar
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Menu Items -->
                 <nav class="space-y-2">
-                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
+                    <a href="{{ url('/') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
                         <i class="fas fa-home text-gray-400 group-hover:text-blue-400 transition-colors"></i>
                         <span class="text-white group-hover:text-blue-400 transition-colors">Beranda</span>
                     </a>
