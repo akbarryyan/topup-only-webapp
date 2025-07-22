@@ -30,6 +30,9 @@
             
         </div>
 
+        <!-- Footer -->
+        <x-footer />
+
         <!-- Loading Overlay -->
         <div id="loading-overlay" class="hidden fixed inset-0 bg-black/50 z-50 items-center justify-center">
             <div class="bg-gray-800 rounded-lg p-8 text-center">
