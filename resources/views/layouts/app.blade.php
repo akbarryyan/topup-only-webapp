@@ -22,6 +22,6 @@
     <body class="font-['Hanken_Grotesk'] bg-[#121212] min-h-screen text-white antialiased">
 
         <div class="container">
-            @yield('content')
             <x-navbar />
+            @yield('content')
         </div>
