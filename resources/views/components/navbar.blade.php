@@ -26,11 +26,11 @@
                 <div class="flex items-center space-x-3">
                     <!-- Desktop Menu -->
                     <nav class="hidden lg:flex items-center space-x-6 mr-6">
-                        <a href="{{ url('/') }}" class="flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-orange-400/10">
+                        <a href="{{ url('/') }}" class="flex items-center space-x-2 {{ request()->is('/') ? 'text-orange-400 bg-orange-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->is('/') ? 'hover:bg-orange-400/20' : 'hover:bg-gray-700/30' }}">
                             <i class="fas fa-coins text-sm"></i>
                             <span class="text-sm font-medium">Top up</span>
                         </a>
-                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 {{ request()->routeIs('check-order') ? 'text-orange-400 bg-blue-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('check-order') ? 'hover:bg-blue-400/20' : 'hover:bg-gray-700/30' }}">
                             <i class="fas fa-receipt text-sm"></i>
                             <span class="text-sm font-medium">Check Order</span>
                         </a>
@@ -45,9 +45,9 @@
                     </nav>
 
                     <!-- Login Button (Desktop) -->
-                    <a href="{{ route('login') }}" class="hidden lg:flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg shadow-blue-500/25 border border-blue-500/20">
+                    <a href="{{ route('login') }}" class="hidden lg:flex items-center space-x-2 {{ request()->routeIs('login') || request()->routeIs('register') ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 shadow-green-500/25' : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 shadow-blue-500/25' }} text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg border border-blue-500/20">
                         <i class="fas fa-sign-in-alt text-sm"></i>
-                        <span class="text-sm font-semibold">Login</span>
+                        <span class="text-sm font-semibold">{{ request()->routeIs('login') || request()->routeIs('register') ? 'Account' : 'Login' }}</span>
                     </a>
 
                     <!-- Search Button (Mobile) -->
@@ -95,31 +95,31 @@
             <!-- Sidebar Content -->
             <div class="px-3 py-4 space-y-6">
                 <!-- User Section -->
-                <div class="bg-gray-800/50 rounded-lg p-4">
+                <div class="bg-gray-800/50 rounded-lg p-4 {{ request()->routeIs('login') || request()->routeIs('register') ? 'border border-green-400/30' : '' }}">
                     <div class="flex items-center space-x-3 mb-3">
-                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 {{ request()->routeIs('login') || request()->routeIs('register') ? 'bg-gradient-to-r from-green-500 to-blue-600' : 'bg-gradient-to-r from-blue-500 to-purple-600' }} rounded-full flex items-center justify-center">
                             <i class="fas fa-user text-white"></i>
                         </div>
                         <div>
                             <h3 class="text-white font-semibold">Guest User</h3>
-                            <p class="text-gray-400 text-sm">Masuk untuk pengalaman terbaik</p>
+                            <p class="text-gray-400 text-sm">{{ request()->routeIs('login') || request()->routeIs('register') ? 'Sedang mengakses akun' : 'Masuk untuk pengalaman terbaik' }}</p>
                         </div>
                     </div>
                     <div class="flex space-x-2">
-                        <a href="{{ route('login') }}" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
-                            Masuk
+                        <a href="{{ route('login') }}" class="flex-1 {{ request()->routeIs('login') ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700' }} text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
+                            {{ request()->routeIs('login') ? 'Login Aktif' : 'Masuk' }}
                         </a>
-                        <a href="{{ route('register') }}" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
-                            Daftar
+                        <a href="{{ route('register') }}" class="flex-1 {{ request()->routeIs('register') ? 'bg-green-700 hover:bg-green-600' : 'bg-gray-700 hover:bg-gray-600' }} text-white text-sm font-medium py-2 px-3 rounded-lg transition-colors text-center">
+                            {{ request()->routeIs('register') ? 'Register Aktif' : 'Daftar' }}
                         </a>
                     </div>
                 </div>
 
                 <!-- Menu Items -->
                 <nav class="space-y-2">
-                    <a href="{{ url('/') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
-                        <i class="fas fa-home text-gray-400 group-hover:text-blue-400 transition-colors"></i>
-                        <span class="text-white group-hover:text-blue-400 transition-colors">Beranda</span>
+                    <a href="{{ url('/') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg {{ request()->is('/') ? 'bg-orange-400/20 border border-orange-400/30' : 'hover:bg-gray-800' }} transition-colors group">
+                        <i class="fas fa-home {{ request()->is('/') ? 'text-orange-400' : 'text-gray-400 group-hover:text-blue-400' }} transition-colors"></i>
+                        <span class="{{ request()->is('/') ? 'text-orange-400' : 'text-white group-hover:text-blue-400' }} transition-colors">Beranda</span>
                     </a>
                     <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
                         <i class="fas fa-gamepad text-gray-400 group-hover:text-blue-400 transition-colors"></i>
@@ -133,9 +133,9 @@
                         <i class="fas fa-gift text-gray-400 group-hover:text-green-400 transition-colors"></i>
                         <span class="text-white group-hover:text-green-400 transition-colors">Promo</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
-                        <i class="fas fa-history text-gray-400 group-hover:text-blue-400 transition-colors"></i>
-                        <span class="text-white group-hover:text-blue-400 transition-colors">Riwayat Transaksi</span>
+                    <a href="{{ route('check-order') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg {{ request()->routeIs('check-order') ? 'bg-blue-400/20 border border-blue-400/30' : 'hover:bg-gray-800' }} transition-colors group">
+                        <i class="fas fa-history {{ request()->routeIs('check-order') ? 'text-blue-400' : 'text-gray-400 group-hover:text-blue-400' }} transition-colors"></i>
+                        <span class="{{ request()->routeIs('check-order') ? 'text-blue-400' : 'text-white group-hover:text-blue-400' }} transition-colors">Check Order</span>
                     </a>
                     <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
                         <i class="fas fa-headset text-gray-400 group-hover:text-blue-400 transition-colors"></i>
