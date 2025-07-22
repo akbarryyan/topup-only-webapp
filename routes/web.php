@@ -21,3 +21,7 @@ Route::get('/check-order', function () {
 Route::get('/news', function () {
     return view('pages.news');
 })->name('news');
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');

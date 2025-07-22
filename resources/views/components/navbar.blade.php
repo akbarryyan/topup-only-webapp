@@ -38,13 +38,13 @@
                             <i class="fas fa-newspaper text-sm"></i>
                             <span class="text-sm font-medium">News</span>
                         </a>
+                        <a href="{{ route('contact') }}" class="flex items-center space-x-2 {{ request()->routeIs('contact') ? 'text-purple-400 bg-purple-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('contact') ? 'hover:bg-purple-400/20' : 'hover:bg-gray-700/30' }}">
+                            <i class="fas fa-headset text-sm"></i>
+                            <span class="text-sm font-medium">Contact</span>
+                        </a>
                         <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
                             <i class="fas fa-calculator text-sm"></i>
                             <span class="text-sm font-medium">Calculator</span>
-                        </a>
-                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
-                            <i class="fas fa-phone text-sm"></i>
-                            <span class="text-sm font-medium">Contact</span>
                         </a>
                     </nav>
 
@@ -133,9 +133,9 @@
                         <i class="fas fa-newspaper {{ request()->routeIs('news') ? 'text-green-400' : 'text-gray-400 group-hover:text-green-400' }} transition-colors"></i>
                         <span class="{{ request()->routeIs('news') ? 'text-green-400' : 'text-white group-hover:text-green-400' }} transition-colors">News & Updates</span>
                     </a>
-                    <a href="#" class="flex items-center space-x-3 px-3 py-3 rounded-lg hover:bg-gray-800 transition-colors group">
-                        <i class="fas fa-headset text-gray-400 group-hover:text-blue-400 transition-colors"></i>
-                        <span class="text-white group-hover:text-blue-400 transition-colors">Bantuan</span>
+                    <a href="{{ route('contact') }}" class="flex items-center space-x-3 px-3 py-3 rounded-lg {{ request()->routeIs('contact') ? 'bg-purple-400/20 border border-purple-400/30' : 'hover:bg-gray-800' }} transition-colors group">
+                        <i class="fas fa-headset {{ request()->routeIs('contact') ? 'text-purple-400' : 'text-gray-400 group-hover:text-purple-400' }} transition-colors"></i>
+                        <span class="{{ request()->routeIs('contact') ? 'text-purple-400' : 'text-white group-hover:text-purple-400' }} transition-colors">Contact & Support</span>
                     </a>
                 </nav>
             </div>
