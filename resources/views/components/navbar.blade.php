@@ -24,13 +24,13 @@
                 <div class="flex items-center space-x-3">
                     <!-- Search Button (Mobile) -->
                     <button
-                        class="md:hidden bg-transparent border border-gray-600 hover:bg-gray-600 p-2 rounded-full transition-colors"
+                        class="md:hidden bg-transparent border border-gray-600 hover:bg-gray-600 py-2 px-4 rounded-full transition-colors"
                     >
                         <i class="fas fa-search text-sm"></i>
                     </button>
 
                     <!-- Language Selector -->
-                    <div class="flex items-center bg-gray-800 border border-gray-600 rounded-full px-3 py-2 cursor-pointer hover:bg-gray-700 transition-colors">
+                    <div class="flex items-center border border-gray-600 rounded-full px-3 py-2 cursor-pointer hover:bg-gray-700 transition-colors">
                         <div class="w-5 h-5 rounded-full mr-2 overflow-hidden">
                             <svg viewBox="0 0 64 64" class="w-full h-full">
                                 <rect width="64" height="32" fill="#ff0000"/>
@@ -42,7 +42,7 @@
                     </div>
 
                     <!-- Menu Button -->
-                    <button class="bg-transparent border border-gray-600 hover:bg-gray-600 px-3 py-2 rounded-full transition-colors group">
+                    <button class="bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
                         <i class="fas fa-bars text-sm group-hover:text-white"></i>
                     </button>
                 </div>
