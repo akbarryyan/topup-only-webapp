@@ -2,144 +2,210 @@
 
 @section('content')
 <!-- Main Content -->
-        <main class="px-4 mt-8">
-            <div class="max-w-7xl mx-auto">
+        <main class="px-4 mt-6">
+            <div class="max-w-7xl mx-auto space-y-8">
                 <!-- Promotional Banner -->
-                <img src="{{ asset('assets/images/banner.jpg') }}" alt="banner.png" class="rounded-xl" />
-            </div>
-
-            <!-- Best Seller Section -->
-            <div class="mt-4">
-                <div class="flex items-center space-x-1">
-                    <h1 class="text-[20px]">BEST SELLER</h1>
-                    <svg
-                        class="h-5"
-                        viewBox="-3 0 32 32"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
-                        fill="#000000"
-                    >
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g
-                            id="SVGRepo_tracerCarrier"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        ></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <title>fire-2</title>
-                            <desc>Created with Sketch Beta.</desc>
-                            <defs></defs>
-                            <g
-                                id="Page-1"
-                                stroke="none"
-                                stroke-width="1"
-                                fill="none"
-                                fill-rule="evenodd"
-                                sketch:type="MSPage"
-                            >
-                                <g
-                                    id="Icon-Set"
-                                    sketch:type="MSLayerGroup"
-                                    transform="translate(-415.000000, -411.000000)"
-                                    fill="#ff3a30"
-                                >
-                                    <path
-                                        d="M428.5,441 C422.148,441 417,435.641 417,429.625 C417,428.228 417.031,427.094 418,426 C417.895,426.634 419.397,432.055 424.305,431.771 C424.092,427.652 422.978,417.561 428.152,414.073 C427.695,419.557 429.038,426.924 435.029,428 C434.686,425.801 434.727,422.143 436.267,421.467 C436.433,424.836 438.924,426.914 438.924,430.152 C438.924,436.016 433.251,441 428.5,441 L428.5,441 Z M437.905,417.953 C433.52,419.203 432.717,422.748 433,425 C429.872,421.322 430,417.093 430,411 C419.968,414.783 422.301,425.688 422,429 C419.477,426.935 419,422 419,422 C416.336,423.371 415,427.031 415,430 C415,437.18 420.82,443 428,443 C435.18,443 441,437.18 441,430 C441,425.733 437.867,423.765 437.905,417.953 L437.905,417.953 Z"
-                                        id="fire-2"
-                                        sketch:type="MSShapeGroup"
-                                    ></path>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
+                <div class="relative overflow-hidden rounded-xl shadow-2xl">
+                    <img src="{{ asset('assets/images/banner.jpg') }}" alt="banner.png" class="w-full h-auto rounded-xl" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl"></div>
                 </div>
-                <!-- Product Best Seller -->
-            </div>
 
-            <!-- Specialist MLBB -->
-            <div class="mt-4">
-                <h1 class="uppercase">Specialist MLBB</h1>
-                <div class="mt-2 grid grid-cols-3 gap-3">
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/ml.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] w-full rounded-lg"
-                        />
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white">24/7</div>
+                        <div class="text-blue-100 text-sm">Online</div>
                     </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/ml.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] w-full rounded-lg"
-                        />
+                    <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white">1M+</div>
+                        <div class="text-green-100 text-sm">Transaksi</div>
                     </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/ml.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] w-full rounded-lg"
-                        />
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg p-4 text-center">
+                        <div class="text-2xl font-bold text-white">100%</div>
+                        <div class="text-purple-100 text-sm">Aman</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- All Product -->
-            <div class="mt-4">
-                <h1 class="text-[20px]">Game</h1>
-                <div class="mt-2 grid grid-cols-3 gap-3">
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/roblox.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] rounded-lg"
-                        />
+                <!-- Best Seller Section -->
+                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center space-x-2">
+                            <h2 class="text-2xl font-bold text-white">BEST SELLER</h2>
+                            <div class="animate-bounce">
+                                <i class="fas fa-fire text-orange-500 text-xl"></i>
+                            </div>
+                        </div>
+                        <span class="text-orange-500 text-sm font-medium bg-orange-500/20 px-3 py-1 rounded-full">Paling Laris!</span>
                     </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/roblox.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] rounded-lg"
-                        />
-                    </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/roblox.jpg') }}"
-                            alt="gambar-product"
-                            class="h-[185px] rounded-lg"
-                        />
+                    
+                    <!-- Best Seller Products Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Mobile Legends" class="w-full h-32 object-cover" />
+                            <div class="p-3">
+                                <h3 class="text-white font-medium text-sm text-center">Mobile Legends</h3>
+                                <p class="text-gray-400 text-xs text-center mt-1">Diamond</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Roblox" class="w-full h-32 object-cover" />
+                            <div class="p-3">
+                                <h3 class="text-white font-medium text-sm text-center">Roblox</h3>
+                                <p class="text-gray-400 text-xs text-center mt-1">Robux</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="PUBG Mobile" class="w-full h-32 object-cover" />
+                            <div class="p-3">
+                                <h3 class="text-white font-medium text-sm text-center">PUBG Mobile</h3>
+                                <p class="text-gray-400 text-xs text-center mt-1">UC</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                            <img src="{{ asset('assets/images/steam.jpg') }}" alt="Steam Wallet" class="w-full h-32 object-cover" />
+                            <div class="p-3">
+                                <h3 class="text-white font-medium text-sm text-center">Steam Wallet</h3>
+                                <p class="text-gray-400 text-xs text-center mt-1">Voucher</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Product Voucher -->
-            <div class="mt-4">
-                <h1>Voucher</h1>
-                <div class="mt-2 grid grid-cols-3 gap-3">
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/steam.jpg') }}"
-                            alt="gambar-product"
-                            class="rounded-lg"
-                        />
+                <!-- Specialist MLBB Section -->
+                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-white">SPECIALIST MLBB</h2>
+                        <span class="text-blue-400 text-sm">Diamond • Starlight • Weekly Pass</span>
                     </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/steam.jpg') }}"
-                            alt="gambar-product"
-                            class="rounded-lg"
-                        />
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="MLBB Diamond" class="h-48 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Diamond MLBB</h3>
+                                <p class="text-gray-300 text-sm">Mulai dari Rp 15.000</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Starlight Member" class="h-48 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Starlight Member</h3>
+                                <p class="text-gray-300 text-sm">Rp 95.000/bulan</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Weekly Pass" class="h-48 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Weekly Pass</h3>
+                                <p class="text-gray-300 text-sm">Rp 22.500/minggu</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <img
-                            src="{{ asset('assets/images/steam.jpg') }}"
-                            alt="gambar-product"
-                            class="rounded-lg"
-                        />
+                </div>
+
+                <!-- All Games Section -->
+                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-white">SEMUA GAME</h2>
+                        <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors">Lihat Semua →</button>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Roblox" class="h-40 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Roblox</h3>
+                                <p class="text-gray-400 text-sm">Robux</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
+                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Free Fire" class="h-40 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Free Fire</h3>
+                                <p class="text-gray-400 text-sm">Diamond</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
+                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Genshin Impact" class="h-40 w-full object-cover" />
+                            <div class="p-4">
+                                <h3 class="text-white font-semibold">Genshin Impact</h3>
+                                <p class="text-gray-400 text-sm">Genesis Crystal</p>
+                                <div class="flex items-center mt-2">
+                                    <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">Online</span>
+                                    <span class="text-green-400 text-xs ml-2">✓ Instant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Voucher Section -->
+                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-white">VOUCHER</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/steam.jpg') }}" alt="Steam Wallet" class="h-40 w-full object-cover" />
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                            <img src="{{ asset('assets/images/steam.jpg') }}" alt="Google Play" class="h-40 w-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="bg-gradient-to-r from-blue-600 to-purple-700 rounded-xl p-8 text-center">
+                    <h2 class="text-2xl font-bold text-white mb-4">Mulai Top Up Sekarang!</h2>
+                    <p class="text-blue-100 mb-6">Nikmati kemudahan top up dengan proses yang cepat dan aman</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-play mr-2"></i>Mulai Top Up
+                        </button>
+                        <button class="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
+                            <i class="fas fa-question-circle mr-2"></i>Bantuan
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
+
+        <!-- Floating WhatsApp Button -->
+        <div class="fixed bottom-6 right-6 z-50">
+            <button class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- JavaScript for interactivity -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add click handlers for game cards
+                const gameCards = document.querySelectorAll('.cursor-pointer');
+                gameCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        // Add selection effect
+                        gameCards.forEach(c => c.classList.remove('ring-2', 'ring-blue-500'));
+                        this.classList.add('ring-2', 'ring-blue-500');
+                        
+                        // Show notification
+                        const gameName = this.querySelector('h3').textContent;
+                        console.log(`Selected: ${gameName}`);
+                    });
+                });
+
+                // Smooth scroll for CTA button
+                document.querySelector('.bg-gradient-to-r button').addEventListener('click', function() {
+                    document.querySelector('.bg-gray-900\\/50').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+            });
+        </script>
 @endsection
