@@ -42,9 +42,49 @@
                             <i class="fas fa-headset text-sm"></i>
                             <span class="text-sm font-medium">Contact</span>
                         </a>
-                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
-                            <i class="fas fa-calculator text-sm"></i>
-                            <span class="text-sm font-medium">Calculator</span>
+                        
+                        <!-- Calculator Dropdown -->
+                        <div class="relative" id="calculatorDropdown">
+                            <button onclick="toggleCalculatorDropdown()" class="flex items-center space-x-2 {{ request()->routeIs('calculator') ? 'text-emerald-400 bg-emerald-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('calculator') ? 'hover:bg-yellow-400/20' : 'hover:bg-gray-700/30' }}">
+                                <i class="fas fa-calculator text-sm"></i>
+                                <span class="text-sm font-medium">Calculator</span>
+                                <i class="fas fa-chevron-down text-xs ml-1 transition-transform duration-300" id="calculatorChevron"></i>
+                            </button>
+                            
+                            <!-- Dropdown Menu -->
+                            <div id="calculatorDropdownMenu" class="absolute top-full left-0 mt-2 w-64 bg-gray-900/95 backdrop-blur-sm rounded-xl border border-gray-700 shadow-2xl opacity-0 invisible transform translate-y-2 transition-all duration-300 z-50">
+                                <div class="p-3 space-y-2">
+                                    <a href="{{ route('calculator') }}#zodiac" onclick="selectCalculatorType('zodiac')" class="flex items-center p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200 group">
+                                        <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center mr-3 group-hover:bg-purple-500/30 transition-colors">
+                                            <i class="fas fa-star text-purple-400 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-medium text-sm">Zodiac</div>
+                                            <div class="text-gray-400 text-xs">Hitung diamond untuk skin Zodiac</div>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="{{ route('calculator') }}#winrate" onclick="selectCalculatorType('winrate')" class="flex items-center p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200 group">
+                                        <div class="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center mr-3 group-hover:bg-green-500/30 transition-colors">
+                                            <i class="fas fa-chart-line text-green-400 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-medium text-sm">Winrate</div>
+                                            <div class="text-gray-400 text-xs">Hitung target winrate</div>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="{{ route('calculator') }}#magic-wheel" onclick="selectCalculatorType('magic-wheel')" class="flex items-center p-3 hover:bg-gray-800/50 rounded-lg transition-colors duration-200 group">
+                                        <div class="w-8 h-8 bg-yellow-500/20 rounded-lg flex items-center justify-center mr-3 group-hover:bg-yellow-500/30 transition-colors">
+                                            <i class="fas fa-dharmachakra text-yellow-400 text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-white font-medium text-sm">Magic Wheel</div>
+                                            <div class="text-gray-400 text-xs">Hitung probabilitas Magic Wheel</div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </a>
                     </nav>
 
@@ -137,11 +177,40 @@
                         <i class="fas fa-headset {{ request()->routeIs('contact') ? 'text-purple-400' : 'text-gray-400 group-hover:text-purple-400' }} transition-colors"></i>
                         <span class="{{ request()->routeIs('contact') ? 'text-purple-400' : 'text-white group-hover:text-purple-400' }} transition-colors">Contact & Support</span>
                     </a>
+                    
+                    <!-- Mobile Calculator Dropdown -->
+                    <div class="space-y-2">
+                        <button onclick="toggleMobileCalculatorDropdown()" class="w-full flex items-center justify-between px-3 py-3 rounded-lg {{ request()->routeIs('calculator') ? 'bg-yellow-400/20 border border-yellow-400/30' : 'hover:bg-gray-800' }} transition-colors group">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-calculator {{ request()->routeIs('calculator') ? 'text-yellow-400' : 'text-gray-400 group-hover:text-yellow-400' }} transition-colors"></i>
+                                <span class="{{ request()->routeIs('calculator') ? 'text-yellow-400' : 'text-white group-hover:text-yellow-400' }} transition-colors">Calculator</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-sm transition-transform duration-300 {{ request()->routeIs('calculator') ? 'text-yellow-400' : 'text-gray-400' }}" id="mobileCalculatorChevron"></i>
+                        </button>
+                        
+                        <!-- Mobile Dropdown Menu -->
+                        <div id="mobileCalculatorDropdownMenu" class="ml-6 space-y-1 max-h-0 overflow-hidden transition-all duration-300">
+                            <a href="{{ route('calculator') }}#zodiac" onclick="selectCalculatorType('zodiac')" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-400 hover:text-purple-400 hover:bg-purple-400/10 transition-all duration-200">
+                                <i class="fas fa-star text-sm"></i>
+                                <span class="text-sm">Zodiac Calculator</span>
+                            </a>
+                            
+                            <a href="{{ route('calculator') }}#winrate" onclick="selectCalculatorType('winrate')" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-400/10 transition-all duration-200">
+                                <i class="fas fa-chart-line text-sm"></i>
+                                <span class="text-sm">Winrate Calculator</span>
+                            </a>
+                            
+                            <a href="{{ route('calculator') }}#magic-wheel" onclick="selectCalculatorType('magic-wheel')" class="flex items-center space-x-3 px-3 py-2 rounded-lg text-gray-400 hover:text-yellow-400 hover:bg-yellow-400/10 transition-all duration-200">
+                                <i class="fas fa-dharmachakra text-sm"></i>
+                                <span class="text-sm">Magic Wheel Calculator</span>
+                            </a>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
 
-        <!-- JavaScript for Sidebar -->
+        <!-- JavaScript for Sidebar and Dropdown -->
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const menuToggle = document.getElementById('menuToggle');
@@ -179,5 +248,51 @@
                         closeSidebarFunc();
                     }
                 });
+            });
+
+            // Calculator Dropdown Functions
+            function toggleCalculatorDropdown() {
+                const dropdown = document.getElementById('calculatorDropdownMenu');
+                const chevron = document.getElementById('calculatorChevron');
+                
+                if (dropdown.classList.contains('opacity-0')) {
+                    dropdown.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                    dropdown.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    dropdown.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+
+            function toggleMobileCalculatorDropdown() {
+                const dropdown = document.getElementById('mobileCalculatorDropdownMenu');
+                const chevron = document.getElementById('mobileCalculatorChevron');
+                
+                if (dropdown.style.maxHeight === '0px' || dropdown.style.maxHeight === '') {
+                    dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+                    chevron.style.transform = 'rotate(180deg)';
+                } else {
+                    dropdown.style.maxHeight = '0px';
+                    chevron.style.transform = 'rotate(0deg)';
+                }
+            }
+
+            function selectCalculatorType(type) {
+                localStorage.setItem('selectedCalculator', type);
+            }
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                const calculatorDropdown = document.getElementById('calculatorDropdown');
+                const dropdown = document.getElementById('calculatorDropdownMenu');
+                const chevron = document.getElementById('calculatorChevron');
+                
+                if (calculatorDropdown && dropdown && chevron && !calculatorDropdown.contains(event.target)) {
+                    dropdown.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    chevron.style.transform = 'rotate(0deg)';
+                }
             });
         </script>

@@ -25,3 +25,7 @@ Route::get('/news', function () {
 Route::get('/contact', function () {
     return view('pages.contact');
 })->name('contact');
+
+Route::get('/calculator', function () {
+    return view('pages.calculator');
+})->name('calculator');
