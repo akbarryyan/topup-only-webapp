@@ -5,7 +5,7 @@
 @section('content')
 <div class="min-h-screen">
     <!-- Product Header -->
-    <div class="bg-gray-900/50 backdrop-blur-sm border-b border-gray-700">
+    <div class="bg-transparent backdrop-blur-sm border-b border-gray-700">
         <div class="max-w-7xl mx-auto px-4 py-6">
             <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6">
                 <!-- Game Icon -->
@@ -48,19 +48,14 @@
             <!-- Left Sidebar -->
             <div class="lg:col-span-1 space-y-6">
                 <!-- Account Details -->
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6">
                     <h3 class="text-xl font-bold text-white mb-6">Enter account details</h3>
                     
                     <!-- User ID -->
                     <div class="mb-4">
                         <label class="block text-gray-300 text-sm font-medium mb-2">User ID</label>
                         <div class="relative">
-                            <select id="userIdSelect" class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors appearance-none cursor-pointer">
-                                <option value="">Enter User ID</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
-                            </div>
+                            <input type="text" id="userIdSelect" class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-blue-500 focus:outline-none transition-colors appearance-none" placeholder="Enter User ID">
                         </div>
                     </div>
                     
@@ -70,35 +65,20 @@
                         <input type="text" 
                                id="serverId"
                                placeholder="Enter Server ID" 
-                               class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
+                               class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
                     </div>
                     
                     <!-- Terms -->
                     <div class="flex items-start space-x-3 mb-6">
                         <input type="checkbox" id="agreeTerms" class="mt-1 rounded border-gray-600 bg-gray-900 text-yellow-500 focus:ring-yellow-500 focus:ring-offset-0">
                         <label for="agreeTerms" class="text-gray-300 text-sm">
-                            I agree to the <a href="#" class="text-yellow-400 hover:text-yellow-300 underline">terms and conditions</a>
+                            I agree to the <a href="#" class="text-yellow-400 hover:text-yellow-300 underline italic">terms and conditions</a>
                         </label>
                     </div>
-                    
-                    <!-- Total -->
-                    <div class="flex items-center justify-between bg-gray-900/50 rounded-lg p-4 mb-4">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-shopping-cart text-gray-400"></i>
-                            <span class="text-gray-300">Total:</span>
-                        </div>
-                        <span class="text-xl font-bold text-white" id="totalPrice">Rp 0</span>
-                    </div>
-                    
-                    <!-- Select Voucher -->
-                    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-black font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-between">
-                        <span>Select Voucher</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
                 
                 <!-- How to Order -->
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6 ">
                     <div class="flex items-center space-x-3 mb-4">
                         <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
                             <i class="fas fa-question text-blue-400 text-sm"></i>
@@ -127,7 +107,7 @@
                 </div>
                 
                 <!-- Need Help -->
-                <div class="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl p-6">
+                <div class="bg-[#855A0D] rounded-2xl px-4 py-3">
                     <div class="flex items-center space-x-3 mb-3">
                         <i class="fas fa-headset text-white text-xl"></i>
                         <div>
@@ -135,42 +115,34 @@
                             <p class="text-yellow-100 text-sm">We are ready to help you 24/7</p>
                         </div>
                     </div>
-                    <button class="bg-white/20 hover:bg-white/30 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
-                        Contact Support
-                    </button>
                 </div>
                 
                 <!-- User Reviews -->
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6">
                     <h3 class="text-lg font-semibold text-white mb-4">User Reviews</h3>
                     
                     <div class="flex items-center space-x-4 mb-4">
                         <div class="text-4xl font-bold text-white">5.0</div>
                         <div>
                             <div class="flex space-x-1 mb-1">
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
-                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400 text-4xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-4xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-4xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-4xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-4xl"></i>
                             </div>
-                            <p class="text-gray-400 text-sm">From 18K Reviews</p>
+                            <p class="text-white text-md">From 18K Reviews</p>
                         </div>
                     </div>
-                    
-                    <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-black font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-between">
-                        <span>View All Reviews</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
                 </div>
             </div>
             
             <!-- Main Content Area -->
             <div class="lg:col-span-2 space-y-8">
                 <!-- Top up Section -->
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6">
                     <!-- Tab Navigation -->
-                    <div class="flex space-x-1 mb-6 bg-gray-900/50 rounded-lg p-1">
+                    <div class="flex space-x-1 mb-6 bg-transparent rounded-lg p-1">
                         <button class="tab-btn active flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors" data-tab="topup">
                             <i class="fas fa-bolt mr-2"></i>
                             Top up
@@ -186,8 +158,8 @@
                         <!-- Select Nominal -->
                         <div class="mb-8">
                             <div class="flex items-center space-x-2 mb-4">
-                                <div class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center">
-                                    <span class="text-black font-bold text-sm">1</span>
+                                <div class="w-8 h-8 bg-[#F8A208] rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-bold text-sm">1</span>
                                 </div>
                                 <h3 class="text-lg font-semibold text-white">Select Nominal</h3>
                             </div>
@@ -240,7 +212,7 @@
                                 <p class="text-gray-400 text-sm mb-4">Item</p>
                                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                     <!-- Small packages -->
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="5" data-price="1472">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="5" data-price="1472">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -254,7 +226,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="8" data-price="2497">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="8" data-price="2497">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -268,7 +240,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="10" data-price="2916">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="10" data-price="2916">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -282,7 +254,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="12" data-price="3433">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="12" data-price="3433">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -297,7 +269,7 @@
                                     </div>
                                     
                                     <!-- Medium packages -->
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="14" data-price="7008">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="14" data-price="7008">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -311,7 +283,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="18" data-price="14080">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="18" data-price="14080">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -325,7 +297,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="19" data-price="21120">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="19" data-price="21120">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -339,7 +311,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="diamond-package bg-gray-900/50 border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="22" data-price="28160">
+                                    <div class="diamond-package bg-transparent border border-gray-600 rounded-lg p-4 cursor-pointer hover:border-blue-500 transition-colors" data-diamonds="22" data-price="28160">
                                         <div class="text-center">
                                             <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mx-auto mb-3">
                                                 <i class="fas fa-gem text-blue-400 text-lg"></i>
@@ -430,10 +402,10 @@
                         <!-- Payment Method -->
                         <div class="mb-8">
                             <div class="flex items-center space-x-2 mb-4">
-                                <div class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center">
-                                    <span class="text-black font-bold text-sm">2</span>
+                                <div class="w-8 h-8 bg-[#F8A208] rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-semibold text-sm">2</span>
                                 </div>
-                                <h3 class="text-xl font-bold text-white">Select Payment Method</h3>
+                                <h3 class="text-lg font-semibold text-white">Select Payment Method</h3>
                             </div>
                             
                             <div class="flex flex-wrap gap-3 mb-6">
@@ -455,7 +427,7 @@
                             </div>
                             
                             <!-- Credits Info -->
-                            <div class="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
+                            <div class="bg-transparent rounded-lg p-4 border border-gray-700">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center space-x-3">
                                         <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
@@ -476,8 +448,8 @@
                         <!-- Contact -->
                         <div class="mb-8">
                             <div class="flex items-center space-x-2 mb-4">
-                                <div class="w-8 h-8 bg-yellow-500 rounded-lg flex items-center justify-center">
-                                    <span class="text-black font-bold text-sm">3</span>
+                                <div class="w-8 h-8 bg-[#F8A208] rounded-lg flex items-center justify-center">
+                                    <span class="text-white font-semibold text-sm">3</span>
                                 </div>
                                 <h3 class="text-xl font-bold text-white">Contactable contact</h3>
                             </div>
@@ -487,7 +459,7 @@
                                     <input type="tel" 
                                            id="phoneNumber" 
                                            placeholder="Enter phone number" 
-                                           class="w-full bg-gray-900 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
+                                           class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:border-blue-500 focus:outline-none transition-colors">
                                 </div>
                                 <p class="text-gray-400 text-sm flex items-center space-x-2">
                                     <i class="fas fa-info-circle"></i>
@@ -495,11 +467,6 @@
                                 </p>
                             </div>
                         </div>
-                        
-                        <!-- Pay Now Button -->
-                        <button id="payNowBtn" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                            Pay Now
-                        </button>
                     </div>
                     
                     <!-- Description Content -->
