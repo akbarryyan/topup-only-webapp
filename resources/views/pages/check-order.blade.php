@@ -96,38 +96,48 @@
             </div>
 
             <!-- Transactions Content -->
-            <!-- Desktop Table View -->
-            <div class="hidden md:block overflow-x-auto">
-                <table class="w-full">
-                    <thead class="bg-gray-800/50">
-                        <tr>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                <i class="fas fa-calendar mr-2"></i>Tanggal
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                <i class="fas fa-gamepad mr-2"></i>Kategori
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                <i class="fas fa-money-bill mr-2"></i>Harga
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                <i class="fas fa-receipt mr-2"></i>No Invoice
-                            </th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                <i class="fas fa-info-circle mr-2"></i>Status
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody id="transactionsTableBody" class="bg-gray-900/30 divide-y divide-gray-700">
-                        <!-- Transaction rows will be populated here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Mobile Card View -->
-            <div class="md:hidden" id="transactionsMobileContainer">
-                <div id="transactionsMobileList" class="space-y-4 p-4">
-                    <!-- Transaction cards will be populated here -->
+            <!-- Card View for All Devices -->
+            <div id="transactionsView">
+                <!-- Cards Container with Scroll -->
+                <div class="max-h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 p-4">
+                    <div id="transactionsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Transaction cards will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Pagination Controls -->
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 px-6 py-4 bg-gray-800/30 border-t border-gray-700">
+                    <div class="flex items-center justify-center lg:justify-start text-sm text-gray-400">
+                        <span>Menampilkan </span>
+                        <span id="showingStart" class="font-medium text-white mx-1">1</span>
+                        <span>-</span>
+                        <span id="showingEnd" class="font-medium text-white mx-1">6</span>
+                        <span> dari </span>
+                        <span id="totalItems" class="font-medium text-white mx-1">0</span>
+                        <span> transaksi</span>
+                    </div>
+                    <div class="flex items-center justify-center space-x-2">
+                        <button 
+                            id="prevBtn"
+                            onclick="changePage(-1)"
+                            class="px-3 py-2 text-sm font-medium text-gray-400 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled
+                        >
+                            <i class="fas fa-chevron-left mr-1"></i>
+                            <span class="hidden sm:inline">Sebelumnya</span>
+                        </button>
+                        <div class="flex items-center space-x-1" id="paginationNumbers">
+                            <!-- Page numbers will be populated here -->
+                        </div>
+                        <button 
+                            id="nextBtn"
+                            onclick="changePage(1)"
+                            class="px-3 py-2 text-sm font-medium text-gray-400 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            <span class="hidden sm:inline">Selanjutnya</span>
+                            <i class="fas fa-chevron-right ml-1"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -237,8 +247,103 @@
             invoice: 'INV-240721-005',
             status: 'pending',
             details: '300 Oneiric Shards'
+        },
+        {
+            id: 6,
+            date: '2024-07-20 20:15',
+            category: 'Valorant',
+            price: 'Rp 100.000',
+            invoice: 'INV-240720-006',
+            status: 'success',
+            details: '1000 VP'
+        },
+        {
+            id: 7,
+            date: '2024-07-20 18:30',
+            category: 'Mobile Legends',
+            price: 'Rp 45.000',
+            invoice: 'INV-240720-007',
+            status: 'pending',
+            details: '257 Diamonds + 25 Bonus'
+        },
+        {
+            id: 8,
+            date: '2024-07-20 15:22',
+            category: 'Call of Duty Mobile',
+            price: 'Rp 85.000',
+            invoice: 'INV-240720-008',
+            status: 'success',
+            details: '800 CP'
+        },
+        {
+            id: 9,
+            date: '2024-07-19 14:45',
+            category: 'Arena of Valor',
+            price: 'Rp 35.000',
+            invoice: 'INV-240719-009',
+            status: 'success',
+            details: '350 Vouchers'
+        },
+        {
+            id: 10,
+            date: '2024-07-19 11:30',
+            category: 'Free Fire',
+            price: 'Rp 60.000',
+            invoice: 'INV-240719-010',
+            status: 'pending',
+            details: '720 Diamonds'
+        },
+        {
+            id: 11,
+            date: '2024-07-18 19:15',
+            category: 'Clash of Clans',
+            price: 'Rp 20.000',
+            invoice: 'INV-240718-011',
+            status: 'success',
+            details: '500 Gems'
+        },
+        {
+            id: 12,
+            date: '2024-07-18 16:40',
+            category: 'PUBG Mobile',
+            price: 'Rp 120.000',
+            invoice: 'INV-240718-012',
+            status: 'success',
+            details: '1800 UC'
+        },
+        {
+            id: 13,
+            date: '2024-07-17 21:10',
+            category: 'Mobile Legends',
+            price: 'Rp 90.000',
+            invoice: 'INV-240717-013',
+            status: 'pending',
+            details: '514 Diamonds + 51 Bonus'
+        },
+        {
+            id: 14,
+            date: '2024-07-17 13:25',
+            category: 'Genshin Impact',
+            price: 'Rp 150.000',
+            invoice: 'INV-240717-014',
+            status: 'success',
+            details: '1980 Genesis Crystals'
+        },
+        {
+            id: 15,
+            date: '2024-07-16 10:55',
+            category: 'Honkai Star Rail',
+            price: 'Rp 55.000',
+            invoice: 'INV-240716-015',
+            status: 'success',
+            details: '580 Oneiric Shards'
         }
     ];
+
+    // Pagination state
+    let currentPage = 1;
+    const itemsPerPage = 6; // Show 6 cards (2 per row on mobile, 3 per row on desktop)
+    let allTransactions = sampleTransactions;
 
     function getStatusBadge(status) {
         if (status === 'success') {
@@ -265,96 +370,144 @@
         }
     }
 
-    function populateTransactions(transactions = sampleTransactions) {
-        const tableBody = document.getElementById('transactionsTableBody');
-        const mobileList = document.getElementById('transactionsMobileList');
+    function populateTransactions(transactions = allTransactions) {
+        const transactionsList = document.getElementById('transactionsList');
         const emptyState = document.getElementById('emptyState');
+        const transactionsView = document.getElementById('transactionsView');
         
         if (transactions.length === 0) {
-            tableBody.innerHTML = '';
-            mobileList.innerHTML = '';
+            transactionsList.innerHTML = '';
             emptyState.classList.remove('hidden');
+            transactionsView.style.display = 'none';
             return;
         }
         
         emptyState.classList.add('hidden');
+        transactionsView.style.display = 'block';
         
-        // Populate desktop table
-        tableBody.innerHTML = transactions.map((transaction, index) => `
-            <tr class="hover:bg-gray-800/50 transition-colors duration-200 animate-fade-in-up" style="animation-delay: ${index * 0.1}s">
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm text-white font-medium">${transaction.date.split(' ')[0]}</div>
-                    <div class="text-xs text-gray-400">${transaction.date.split(' ')[1]}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm font-medium text-white">${transaction.category}</div>
-                    <div class="text-xs text-gray-400">${transaction.details}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm font-semibold text-blue-400">${transaction.price}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    <div class="text-sm font-mono text-gray-300 bg-gray-800/50 px-2 py-1 rounded">${transaction.invoice}</div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                    ${getStatusBadge(transaction.status)}
-                </td>
-            </tr>
-        `).join('');
+        // Calculate pagination
+        const totalPages = Math.ceil(transactions.length / itemsPerPage);
         
-        // Populate mobile cards
-        mobileList.innerHTML = transactions.map((transaction, index) => `
-            <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 border border-gray-700 hover:border-gray-600 transition-all duration-300 animate-fade-in-up" style="animation-delay: ${index * 0.1}s">
+        // Get current page transactions
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentTransactions = transactions.slice(startIndex, endIndex);
+        
+        // Populate cards
+        transactionsList.innerHTML = currentTransactions.map((transaction, index) => `
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-5 border border-gray-700 hover:border-gray-600 transition-all duration-300 animate-fade-in-up hover:scale-105" style="animation-delay: ${index * 0.1}s">
                 <!-- Header with Status -->
-                <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-gamepad text-blue-400 text-sm"></i>
-                        <span class="text-white font-medium text-sm">${transaction.category}</span>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-blue-500/20 p-2 rounded-lg">
+                            <i class="fas fa-gamepad text-blue-400 text-lg"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold text-base">${transaction.category}</h3>
+                            <p class="text-gray-400 text-sm">${transaction.details}</p>
+                        </div>
                     </div>
                     ${getStatusBadge(transaction.status)}
                 </div>
                 
                 <!-- Transaction Details -->
-                <div class="space-y-2">
-                    <!-- Invoice & Date -->
+                <div class="space-y-3">
+                    <!-- Invoice -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-2">
-                            <i class="fas fa-receipt text-gray-400 text-xs"></i>
-                            <span class="text-gray-400 text-xs">Invoice:</span>
+                            <i class="fas fa-receipt text-gray-400 text-sm"></i>
+                            <span class="text-gray-400 text-sm">Invoice:</span>
                         </div>
-                        <span class="text-white font-mono text-xs bg-gray-700/50 px-2 py-1 rounded">${transaction.invoice}</span>
+                        <span class="text-white font-mono text-sm bg-gray-700/50 px-3 py-1 rounded-lg">${transaction.invoice}</span>
                     </div>
                     
+                    <!-- Date -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-2">
-                            <i class="fas fa-calendar text-gray-400 text-xs"></i>
-                            <span class="text-gray-400 text-xs">Tanggal:</span>
+                            <i class="fas fa-calendar text-gray-400 text-sm"></i>
+                            <span class="text-gray-400 text-sm">Tanggal:</span>
                         </div>
-                        <span class="text-gray-300 text-xs">${transaction.date}</span>
-                    </div>
-                    
-                    <!-- Product Details -->
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-2">
-                            <i class="fas fa-gift text-gray-400 text-xs"></i>
-                            <span class="text-gray-400 text-xs">Produk:</span>
-                        </div>
-                        <span class="text-gray-300 text-xs text-right">${transaction.details}</span>
+                        <span class="text-gray-300 text-sm">${transaction.date}</span>
                     </div>
                     
                     <!-- Price -->
-                    <div class="flex items-center justify-between pt-2 border-t border-gray-700">
+                    <div class="flex items-center justify-between pt-3 border-t border-gray-700">
                         <div class="flex items-center space-x-2">
-                            <i class="fas fa-money-bill text-green-400 text-xs"></i>
-                            <span class="text-gray-400 text-xs">Total:</span>
+                            <i class="fas fa-money-bill text-green-400 text-sm"></i>
+                            <span class="text-gray-400 text-sm">Total Harga:</span>
                         </div>
-                        <span class="text-blue-400 font-bold text-sm">${transaction.price}</span>
+                        <span class="text-blue-400 font-bold text-lg">${transaction.price}</span>
                     </div>
                 </div>
             </div>
         `).join('');
         
+        // Update pagination info and controls
+        updatePaginationInfo(transactions.length, startIndex + 1, Math.min(endIndex, transactions.length));
+        updatePaginationControls(totalPages);
+        
         updateStatistics(transactions);
+    }
+
+    function updatePaginationInfo(total, start, end) {
+        document.getElementById('showingStart').textContent = start;
+        document.getElementById('showingEnd').textContent = end;
+        document.getElementById('totalItems').textContent = total;
+    }
+
+    function updatePaginationControls(totalPages) {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const numbersContainer = document.getElementById('paginationNumbers');
+        
+        // Update prev/next buttons
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+        
+        // Update page numbers
+        let pageNumbers = '';
+        
+        // Show max 5 page numbers
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, startPage + 4);
+        
+        if (endPage - startPage < 4) {
+            startPage = Math.max(1, endPage - 4);
+        }
+        
+        for (let i = startPage; i <= endPage; i++) {
+            const isActive = i === currentPage;
+            
+            pageNumbers += `
+                <button 
+                    onclick="goToPage(${i})"
+                    class="w-8 h-8 text-xs font-medium rounded-lg transition-all duration-200 ${
+                        isActive 
+                            ? 'bg-blue-600 text-white border border-blue-500' 
+                            : 'text-gray-400 bg-gray-700 border border-gray-600 hover:bg-gray-600 hover:text-white'
+                    }"
+                >
+                    ${i}
+                </button>
+            `;
+        }
+        
+        numbersContainer.innerHTML = pageNumbers;
+    }
+
+    function changePage(direction) {
+        const totalItems = allTransactions.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        
+        currentPage += direction;
+        currentPage = Math.max(1, Math.min(totalPages, currentPage));
+        
+        populateTransactions();
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        populateTransactions();
     }
 
     function updateStatistics(transactions) {
@@ -389,7 +542,7 @@
         
         // Simulate API call
         setTimeout(() => {
-            const foundOrder = sampleTransactions.find(t => t.invoice.toLowerCase() === invoice.toLowerCase());
+            const foundOrder = allTransactions.find(t => t.invoice.toLowerCase() === invoice.toLowerCase());
             
             if (foundOrder) {
                 orderResult.innerHTML = `
@@ -535,28 +688,58 @@
     }
     
     /* Custom scrollbar for table */
-    .overflow-x-auto::-webkit-scrollbar {
+    .overflow-x-auto::-webkit-scrollbar,
+    .overflow-y-auto::-webkit-scrollbar {
         height: 4px;
+        width: 4px;
     }
     
-    .overflow-x-auto::-webkit-scrollbar-track {
+    .overflow-x-auto::-webkit-scrollbar-track,
+    .overflow-y-auto::-webkit-scrollbar-track {
         background: rgba(75, 85, 99, 0.3);
         border-radius: 2px;
     }
     
-    .overflow-x-auto::-webkit-scrollbar-thumb {
+    .overflow-x-auto::-webkit-scrollbar-thumb,
+    .overflow-y-auto::-webkit-scrollbar-thumb {
         background: rgba(59, 130, 246, 0.6);
         border-radius: 2px;
     }
     
-    .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    .overflow-x-auto::-webkit-scrollbar-thumb:hover,
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover {
         background: rgba(59, 130, 246, 0.8);
+    }
+    
+    /* Scrollbar thin utility for Tailwind compatibility */
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+    
+    .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+        background: rgba(75, 85, 99, 0.8);
+        border-radius: 2px;
+    }
+    
+    .scrollbar-track-gray-800::-webkit-scrollbar-track {
+        background: rgba(31, 41, 55, 0.5);
+        border-radius: 2px;
     }
     
     /* Hover effects */
     tbody tr:hover {
         transform: translateY(-1px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Pagination button animations */
+    button:hover {
+        transform: translateY(-1px);
+    }
+    
+    button:disabled {
+        transform: none !important;
     }
 </style>
 @endsection
