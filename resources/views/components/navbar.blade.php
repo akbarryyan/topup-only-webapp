@@ -14,7 +14,7 @@
                         <input 
                             type="text" 
                             placeholder="Cari game favorit..." 
-                            class="w-full bg-gray-800 border border-gray-600 rounded-full px-4 py-2 pl-4 pr-10 text-white placeholder-gray-400 text-sm focus:border-blue-500 focus:outline-none transition-colors"
+                            class="w-full bg-transparent border border-gray-600 rounded-full px-4 py-2 pl-4 pr-10 text-white placeholder-gray-400 text-sm focus:border-blue-500 focus:outline-none transition-colors"
                         />
                         <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
                             <i class="fas fa-search text-sm"></i>
