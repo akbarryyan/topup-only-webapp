@@ -42,6 +42,10 @@
                             <i class="fas fa-calculator text-sm"></i>
                             <span class="text-sm font-medium">Calculator</span>
                         </a>
+                        <a href="#" class="flex items-center space-x-2 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg hover:bg-gray-700/30">
+                            <i class="fas fa-phone text-sm"></i>
+                            <span class="text-sm font-medium">Contact</span>
+                        </a>
                     </nav>
 
                     <!-- Login Button (Desktop) -->
@@ -56,18 +60,6 @@
                     >
                         <i class="fas fa-search text-sm"></i>
                     </button>
-
-                    <!-- Language Selector -->
-                    <div class="flex items-center border border-gray-600 rounded-full px-3 py-2 cursor-pointer hover:bg-gray-700 transition-colors">
-                        <div class="w-5 h-5 rounded-full mr-2 overflow-hidden">
-                            <svg viewBox="0 0 64 64" class="w-full h-full">
-                                <rect width="64" height="32" fill="#ff0000"/>
-                                <rect y="32" width="64" height="32" fill="#ffffff"/>
-                            </svg>
-                        </div>
-                        <span class="text-white text-sm font-medium">ID</span>
-                        <i class="fas fa-chevron-down text-gray-400 text-xs ml-1"></i>
-                    </div>
 
                     <!-- Menu Button (Mobile/Tablet only) -->
                     <button id="menuToggle" class="lg:hidden bg-transparent border border-gray-600 hover:bg-gray-600 px-4 py-2 rounded-full transition-colors group">
