@@ -14,36 +14,7 @@
 
                 <x-specialist-m-l-section />
 
-                <!-- All Games Section -->
-                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-white">SEMUA GAME</h2>
-                        <button class="text-blue-400 text-sm hover:text-blue-300 transition-colors">Lihat Semua →</button>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Roblox" class="h-40 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Roblox</h3>
-                                <p class="text-gray-400 text-sm">Robux</p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Free Fire" class="h-40 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Free Fire</h3>
-                                <p class="text-gray-400 text-sm">Diamond</p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/roblox.jpg') }}" alt="Genshin Impact" class="h-40 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Genshin Impact</h3>
-                                <p class="text-gray-400 text-sm">Genesis Crystal</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-all-games-section />
 
                 <!-- Voucher Section -->
                 <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
