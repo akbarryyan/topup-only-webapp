@@ -12,29 +12,7 @@
 
                 <x-best-seller-section />
 
-                <!-- Specialist MLBB Section -->
-                <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-white">SPECIALIST MLBB</h2>
-                        <span class="text-blue-400 text-sm">Diamond • Starlight • Weekly Pass</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="MLBB Diamond" class="h-48 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Diamond MLBB</h3>
-                                <p class="text-gray-300 text-sm">Mulai dari Rp 15.000</p>
-                            </div>
-                        </div>
-                        <div class="bg-gray-800 rounded-lg overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                            <img src="{{ asset('assets/images/ml.jpg') }}" alt="Starlight Member" class="h-48 w-full object-cover" />
-                            <div class="p-4">
-                                <h3 class="text-white font-semibold">Starlight Member</h3>
-                                <p class="text-gray-300 text-sm">Rp 95.000/bulan</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-specialist-m-l-section />
 
                 <!-- All Games Section -->
                 <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
