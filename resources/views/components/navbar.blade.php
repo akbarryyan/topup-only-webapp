@@ -30,7 +30,7 @@
                             <i class="fas fa-coins text-sm"></i>
                             <span class="text-sm font-medium">Top up</span>
                         </a>
-                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 {{ request()->routeIs('check-order') ? 'text-orange-400 bg-blue-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('check-order') ? 'hover:bg-blue-400/20' : 'hover:bg-gray-700/30' }}">
+                        <a href="{{ route('check-order') }}" class="flex items-center space-x-2 {{ request()->routeIs('check-order') ? 'text-orange-400 bg-orange-400/10' : 'text-gray-300 hover:text-white' }} transition-all duration-300 hover:scale-105 px-3 py-2 rounded-lg {{ request()->routeIs('check-order') ? 'hover:bg-blue-400/20' : 'hover:bg-gray-700/30' }}">
                             <i class="fas fa-receipt text-sm"></i>
                             <span class="text-sm font-medium">Check Order</span>
                         </a>
