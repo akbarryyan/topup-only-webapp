@@ -143,11 +143,11 @@
                 <div class="bg-[#18191A] backdrop-blur-sm rounded-2xl p-6">
                     <!-- Tab Navigation -->
                     <div class="flex space-x-1 mb-6 bg-transparent rounded-lg p-1">
-                        <button class="tab-btn active flex-1 py-2 px-4 text-sm font-medium transition-colors" data-tab="topup">
+                        <button class="tab-btn active flex-1 py-2 px-4 text-sm font-medium transition-colors border-b border-[#F8A208] text-white" data-tab="topup">
                             <i class="fas fa-bolt mr-2"></i>
                             Top up
                         </button>
-                        <button class="tab-btn flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors" data-tab="description">
+                        <button class="tab-btn flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors text-gray-400" data-tab="description">
                             <i class="fas fa-info-circle mr-2"></i>
                             Description
                         </button>
@@ -441,7 +441,7 @@
                                 </div>
                                 
                                 <!-- No admin fee banner -->
-                                <div class="mt-3 bg-gradient-to-r from-purple-900/50 to-purple-800/50 border border-purple-600/30 px-4 py-3 rounded-lg">
+                                <div class="mt-3 bg-[#292034] border border-purple-600/30 px-4 py-3 rounded-lg">
                                     <p class="text-purple-300 text-sm font-medium">No admin fee</p>
                                 </div>
                             </div>
@@ -468,7 +468,7 @@
                                 </div>
                                 
                                 <!-- Info message with styled border -->
-                                <div class="border border-gray-600 rounded-lg p-4 bg-transparent">
+                                <div class="bg-[#242526] border border-gray-600 rounded-lg p-4">
                                     <p class="text-gray-400 text-sm flex items-center space-x-2">
                                         <i class="fas fa-info-circle text-gray-500"></i>
                                         <span>This number will be contacted if a problem occurs.</span>
@@ -731,9 +731,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
-    // Initialize active tab
-    document.querySelector('.tab-btn[data-tab="topup"]').classList.add('active', 'border-b', 'border-[#F8A208]','text-white');
-    document.querySelector('.tab-btn[data-tab="topup"]').classList.remove('text-white');
+    // Initialize active tab - ensure topup tab has correct styling on load
+    const activeTab = document.querySelector('.tab-btn[data-tab="topup"]');
+    activeTab.classList.add('active', 'border-b', 'border-[#F8A208]', 'text-white');
+    activeTab.classList.remove('text-gray-400');
 });
 </script>
 
