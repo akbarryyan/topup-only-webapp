@@ -1,1157 +1,967 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
 
-@section('title', 'Admin Dashboard - PI TOPUP')
+<!-- =========================================================
+* Vuexy - Bootstrap Admin Template | v2.0.0
+==============================================================
 
-@section('content')
-    <!-- Admin Header -->
-    <div class="relative bg-black/90 backdrop-blur-xl border-b border-cyan-500/20 overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-blue-900/20 to-cyan-900/20"></div>
-        <div class="absolute inset-0">
-            <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+* Product Page: https://1.envato.market/vuexy_admin
+* Created by: Pixinvent
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright Pixinvent (https://pixinvent.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+
+
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr" data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template" data-style="light">
+
+  
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Sep 2024 17:44:59 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Dashboard - Analytics | Vuexy - Bootstrap Admin Template</title>
+
+    
+    <meta name="description" content="Start your development with a Dashboard for Bootstrap 5" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://1.envato.market/vuexy_admin">
+    
+    
+    <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5J3LMKC');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;ampdisplay=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/fontawesome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/tabler-icons.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/flag-icons.css') }}" />
+
+    <!-- Core CSS -->
+
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
+
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/node-waves/node-waves.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/typeahead-js/typeahead.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/swiper/swiper.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/css/pages/cards-advance.css') }}" />
+
+    <!-- Helpers -->
+    <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="{{ asset('assets/vendor/js/template-customizer.js') }}"></script>
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{{ asset('assets/js/config.js') }}"></script>
+
+  </head>
+
+  <body>
+
+    
+    <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J3LMKC" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar  ">
+  <div class="layout-container">
+
+    
+    
+
+
+
+
+<!-- Menu -->
+<x-menu-admin />
+<!-- / Menu -->
+
+    
+
+    <!-- Layout container -->
+    <div class="layout-page">
+      
+      
+
+
+
+<!-- Navbar -->
+<x-navbar-admin />
+<!-- / Navbar -->
+
+      
+
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+
+        <!-- Content -->
         
-        <div class="relative max-w-7xl mx-auto px-6 py-8 lg:py-12">
-            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-cyan-500/25">
-                            <i class="fas fa-chart-line text-black text-xl font-bold"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-white via-cyan-200 to-purple-300 bg-clip-text text-transparent">
-                                ADMIN CONTROL
-                            </h1>
-                            <p class="text-cyan-300 text-lg font-medium tracking-wide">Advanced Analytics Dashboard</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <!-- Real-time Clock -->
-                    <div class="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-sm border border-cyan-400/30 px-6 py-4 rounded-2xl shadow-xl shadow-cyan-500/10">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
-                            <span class="text-white font-mono text-lg font-bold" id="current-time"></span>
-                        </div>
-                    </div>
-                    
-                    <!-- Status Indicator -->
-                    <div class="bg-gradient-to-r from-emerald-500/20 to-green-500/20 backdrop-blur-sm border border-emerald-400/30 px-6 py-4 rounded-2xl shadow-xl shadow-emerald-500/10">
-                        <div class="flex items-center space-x-3">
-                            <div class="relative">
-                                <div class="w-3 h-3 bg-emerald-400 rounded-full"></div>
-                                <div class="absolute inset-0 w-3 h-3 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
-                            </div>
-                            <span class="text-emerald-300 font-bold tracking-wide">SYSTEM ONLINE</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="container-xxl flex-grow-1 container-p-y">
+            
+            
+
+<div class="row g-6">
+  <!-- Website Analytics -->
+  <div class="col-lg-6">
+    <div class="swiper-container swiper-container-horizontal swiper swiper-card-advance-bg" id="swiper-with-pagination-cards">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="text-white mb-0">Website Analytics</h5>
+              <small>Total 28.5% Conversion Rate</small>
             </div>
+            <div class="row">
+              <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1 pt-md-9">
+                <h6 class="text-white mt-0 mt-md-3 mb-4">Traffic</h6>
+                <div class="row">
+                  <div class="col-6">
+                    <ul class="list-unstyled mb-0">
+                      <li class="d-flex mb-4 align-items-center">
+                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">28%</p>
+                        <p class="mb-0">Sessions</p>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">1.2k</p>
+                        <p class="mb-0">Leads</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-unstyled mb-0">
+                      <li class="d-flex mb-4 align-items-center">
+                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">3.1k</p>
+                        <p class="mb-0">Page Views</p>
+                      </li>
+                      <li class="d-flex align-items-center">
+                        <p class="mb-0 fw-medium me-2 website-analytics-text-bg">12%</p>
+                        <p class="mb-0">Conversions</p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
+                <img src="../../assets/img/illustrations/card-website-analytics-1.png" alt="Website Analytics" height="150" class="card-website-analytics-img">
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="text-white mb-0">Website Analytics</h5>
+              <small>Total 28.5% Conversion Rate</small>
+            </div>
+            <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1 pt-md-9">
+              <h6 class="text-white mt-0 mt-md-3 mb-4">Spending</h6>
+              <div class="row">
+                <div class="col-6">
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex mb-4 align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">12h</p>
+                      <p class="mb-0">Spend</p>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">127</p>
+                      <p class="mb-0">Order</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex mb-4 align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">18</p>
+                      <p class="mb-0">Order Size</p>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">2.3k</p>
+                      <p class="mb-0">Items</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
+              <img src="../../assets/img/illustrations/card-website-analytics-2.png" alt="Website Analytics" height="150" class="card-website-analytics-img">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="row">
+            <div class="col-12">
+              <h5 class="text-white mb-0">Website Analytics</h5>
+              <small>Total 28.5% Conversion Rate</small>
+            </div>
+            <div class="col-lg-7 col-md-9 col-12 order-2 order-md-1 pt-md-9">
+              <h6 class="text-white mt-0 mt-md-3 mb-4">Revenue Sources</h6>
+              <div class="row">
+                <div class="col-6">
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex mb-4 align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">268</p>
+                      <p class="mb-0">Direct</p>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">62</p>
+                      <p class="mb-0">Referral</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex mb-4 align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">890</p>
+                      <p class="mb-0">Organic</p>
+                    </li>
+                    <li class="d-flex align-items-center">
+                      <p class="mb-0 fw-medium me-2 website-analytics-text-bg">1.2k</p>
+                      <p class="mb-0">Campaign</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-3 col-12 order-1 order-md-2 my-4 my-md-0 text-center">
+              <img src="../../assets/img/illustrations/card-website-analytics-3.png" alt="Website Analytics" height="150" class="card-website-analytics-img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  <!--/ Website Analytics -->
+
+  <!-- Average Daily Sales -->
+  <div class="col-xl-3 col-sm-6">
+    <div class="card h-100">
+      <div class="card-header pb-0">
+        <h5 class="mb-3 card-title">Average Daily Sales</h5>
+        <p class="mb-0 text-body">Total Sales This Month</p>
+        <h4 class="mb-0">$28,450</h4>
+      </div>
+      <div class="card-body px-0">
+        <div id="averageDailySales"></div>
+      </div>
+    </div>
+  </div>
+  <!--/ Average Daily Sales -->
+
+  <!-- Sales Overview -->
+  <div class="col-xl-3 col-sm-6">
+    <div class="card h-100">
+      <div class="card-header">
+        <div class="d-flex justify-content-between">
+          <p class="mb-0 text-body">Sales Overview</p>
+          <p class="card-text fw-medium text-success">+18.2%</p>
+        </div>
+        <h4 class="card-title mb-1">$42.5k</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4">
+            <div class="d-flex gap-2 align-items-center mb-2">
+              <span class="badge bg-label-info p-1 rounded"><i class="ti ti-shopping-cart ti-sm"></i></span>
+              <p class="mb-0">Order</p>
+            </div>
+            <h5 class="mb-0 pt-1">62.2%</h5>
+            <small class="text-muted">6,440</small>
+          </div>
+          <div class="col-4">
+            <div class="divider divider-vertical">
+              <div class="divider-text">
+                <span class="badge-divider-bg bg-label-secondary">VS</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 text-end">
+            <div class="d-flex gap-2 justify-content-end align-items-center mb-2">
+              <p class="mb-0">Visits</p>
+              <span class="badge bg-label-primary p-1 rounded"><i class="ti ti-link ti-sm"></i></span>
+            </div>
+            <h5 class="mb-0 pt-1">25.5%</h5>
+            <small class="text-muted">12,749</small>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mt-6">
+          <div class="progress w-100" style="height: 10px;">
+            <div class="progress-bar bg-info" style="width: 70%" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Sales Overview -->
+
+  <!-- Earning Reports -->
+  <div class="col-lg-6">
+    <div class="card h-100">
+      <div class="card-header pb-0 d-flex justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="mb-1">Earning Reports</h5>
+          <p class="card-subtitle">Weekly Earnings Overview</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="earningReportsId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ti ti-dots-vertical ti-md text-muted"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="earningReportsId">
+            <a class="dropdown-item" href="javascript:void(0);">View More</a>
+            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row align-items-center g-md-8">
+          <div class="col-12 col-md-5 d-flex flex-column">
+            <div class="d-flex gap-2 align-items-center mb-3 flex-wrap">
+              <h2 class="mb-0">$468</h2>
+              <div class="badge rounded bg-label-success">+4.2%</div>
+            </div>
+            <small class="text-body">You informed of this week compared to last week</small>
+          </div>
+          <div class="col-12 col-md-7 ps-xl-8">
+            <div id="weeklyEarningReports"></div>
+          </div>
+        </div>
+        <div class="border rounded p-5 mt-5">
+          <div class="row gap-4 gap-sm-0">
+            <div class="col-12 col-sm-4">
+              <div class="d-flex gap-2 align-items-center">
+                <div class="badge rounded bg-label-primary p-1"><i class="ti ti-currency-dollar ti-sm"></i></div>
+                <h6 class="mb-0 fw-normal">Earnings</h6>
+              </div>
+              <h4 class="my-2">$545.69</h4>
+              <div class="progress w-75" style="height:4px">
+                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="d-flex gap-2 align-items-center">
+                <div class="badge rounded bg-label-info p-1"><i class="ti ti-chart-pie-2 ti-sm"></i></div>
+                <h6 class="mb-0 fw-normal">Profit</h6>
+              </div>
+              <h4 class="my-2">$256.34</h4>
+              <div class="progress w-75" style="height:4px">
+                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <div class="d-flex gap-2 align-items-center">
+                <div class="badge rounded bg-label-danger p-1"><i class="ti ti-brand-paypal ti-sm"></i></div>
+                <h6 class="mb-0 fw-normal">Expense</h6>
+              </div>
+              <h4 class="my-2">$74.19</h4>
+              <div class="progress w-75" style="height:4px">
+                <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Earning Reports -->
+
+  <!-- Support Tracker -->
+  <div class="col-md-6">
+    <div class="card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="mb-1">Support Tracker</h5>
+          <p class="card-subtitle">Last 7 Days</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="supportTrackerMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ti ti-dots-vertical ti-md text-muted"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="supportTrackerMenu">
+            <a class="dropdown-item" href="javascript:void(0);">View More</a>
+            <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body row">
+        <div class="col-12 col-sm-4 col-md-12 col-lg-4">
+          <div class="mt-lg-4 mt-lg-2 mb-lg-6 mb-2">
+            <h2 class="mb-0">164</h2>
+            <p class="mb-0">Total Tickets</p>
+          </div>
+          <ul class="p-0 m-0">
+            <li class="d-flex gap-4 align-items-center mb-lg-3 pb-1">
+              <div class="badge rounded bg-label-primary p-1_5"><i class="ti ti-ticket ti-md"></i></div>
+              <div>
+                <h6 class="mb-0 text-nowrap">New Tickets</h6>
+                <small class="text-muted">142</small>
+              </div>
+            </li>
+            <li class="d-flex gap-4 align-items-center mb-lg-3 pb-1">
+              <div class="badge rounded bg-label-info p-1_5"><i class="ti ti-circle-check ti-md"></i></div>
+              <div>
+                <h6 class="mb-0 text-nowrap">Open Tickets</h6>
+                <small class="text-muted">28</small>
+              </div>
+            </li>
+            <li class="d-flex gap-4 align-items-center pb-1">
+              <div class="badge rounded bg-label-warning p-1_5"><i class="ti ti-clock ti-md"></i></div>
+              <div>
+                <h6 class="mb-0 text-nowrap">Response Time</h6>
+                <small class="text-muted">1 Day</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-sm-8 col-md-12 col-lg-8">
+          <div id="supportTracker"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Support Tracker -->
+
+  <!-- Sales By Country -->
+  <div class="col-xxl-4 col-md-6">
+    <div class="card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="mb-1">Sales by Countries</h5>
+          <p class="card-subtitle">Monthly Sales Overview</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="salesByCountry" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ti ti-dots-vertical ti-md text-muted"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="salesByCountry">
+            <a class="dropdown-item" href="javascript:void(0);">Download</a>
+            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+            <a class="dropdown-item" href="javascript:void(0);">Share</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="p-0 m-0">
+          <li class="d-flex align-items-center mb-4">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-us rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$8,567k</h6>
+
+                </div>
+                <small class="text-body">United states</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-success fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-up'></i>
+                  25.8%
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex align-items-center mb-4">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-br rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$2,415k</h6>
+                </div>
+                <small class="text-body">Brazil</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-danger fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-down'></i>
+                  6.2%
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex align-items-center mb-4">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-in rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$865k</h6>
+                </div>
+                <small class="text-body">India</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-success fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-up'></i>
+                  12.4%
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex align-items-center mb-4">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-au rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$745k</h6>
+                </div>
+                <small class="text-body">Australia</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-danger fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-down'></i>
+                  11.9%
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex align-items-center mb-4">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-fr rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$45</h6>
+                </div>
+                <small class="text-body">France</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-success fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-up'></i>
+                  16.2%
+                </p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex align-items-center">
+            <div class="avatar flex-shrink-0 me-4">
+              <i class="fis fi fi-cn rounded-circle fs-2"></i>
+            </div>
+            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+              <div class="me-2">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0 me-1">$12k</h6>
+                </div>
+                <small class="text-body">China</small>
+              </div>
+              <div class="user-progress">
+                <p class="text-success fw-medium mb-0 d-flex align-items-center gap-1">
+                  <i class='ti ti-chevron-up'></i>
+                  14.8%
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--/ Sales By Country -->
+
+  <!-- Total Earning -->
+  <div class="col-xxl-4 col-md-6">
+    <div class="card h-100">
+      <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0 card-title">Total Earning</h5>
+          <div class="dropdown">
+            <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="totalEarning" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-dots-vertical ti-md text-muted"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="totalEarning">
+              <a class="dropdown-item" href="javascript:void(0);">View More</a>
+              <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <h2 class="mb-0 me-2">87%</h2>
+          <i class="ti ti-chevron-up text-success me-1"></i>
+          <h6 class="text-success mb-0">25.8%</h6>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="totalEarningChart"></div>
+        <div class="d-flex align-items-start my-4">
+          <div class="badge rounded bg-label-primary p-2 me-4 rounded"><i class="ti ti-brand-paypal ti-md"></i></div>
+          <div class="d-flex justify-content-between w-100 gap-2 align-items-center">
+            <div class="me-2">
+              <h6 class="mb-0">Total Revenue</h6>
+              <small class="text-body">Client Payment</small>
+            </div>
+            <h6 class="mb-0 text-success">+$126</h6>
+          </div>
+        </div>
+        <div class="d-flex align-items-start">
+          <div class="badge rounded bg-label-secondary p-2 me-4 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
+          <div class="d-flex justify-content-between w-100 gap-2 align-items-center">
+            <div class="me-2">
+              <h6 class="mb-0">Total Sales</h6>
+              <small class="text-body">Refund</small>
+            </div>
+            <h6 class="mb-0 text-success">+$98</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Total Earning -->
+
+  <!-- Monthly Campaign State -->
+  <div class="col-xxl-4 col-md-6">
+    <div class="card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="mb-1">Monthly Campaign State</h5>
+          <p class="card-subtitle">8.52k Social Visiters</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="MonthlyCampaign" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ti ti-dots-vertical ti-md text-muted"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="MonthlyCampaign">
+            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+            <a class="dropdown-item" href="javascript:void(0);">Download</a>
+            <a class="dropdown-item" href="javascript:void(0);">View All</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="p-0 m-0">
+          <li class="mb-6 d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-success rounded p-1_5"><i class="ti ti-mail ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Emails</h6>
+              <div class="d-flex">
+                <p class="mb-0">12,346</p>
+                <p class="ms-4 text-success mb-0">0.3%</p>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6 d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-info rounded p-1_5"><i class="ti ti-link ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Opened</h6>
+              <div class="d-flex">
+                <p class="mb-0">8,734</p>
+                <p class="ms-4 text-success mb-0">2.1%</p>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6 d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-warning rounded p-1_5"><i class="ti ti-mouse ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Clicked</h6>
+              <div class="d-flex">
+                <p class="mb-0">967</p>
+                <p class="ms-4 text-danger mb-0">1.4%</p>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6 d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-primary rounded p-1_5"><i class="ti ti-users ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Subscribe</h6>
+              <div class="d-flex">
+                <p class="mb-0">345</p>
+                <p class="ms-4 text-success mb-0">8.5%</p>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6 d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-secondary rounded p-1_5"><i class="ti ti-alert-triangle ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Complaints</h6>
+              <div class="d-flex">
+                <p class="mb-0">10</p>
+                <p class="ms-4 text-danger mb-0">1.5%</p>
+              </div>
+            </div>
+          </li>
+          <li class="d-flex justify-content-between align-items-center">
+            <div class="badge bg-label-danger rounded p-1_5"><i class="ti ti-ban ti-md"></i></div>
+            <div class="d-flex justify-content-between w-100 flex-wrap">
+              <h6 class="mb-0 ms-4">Unsubscribe</h6>
+              <div class="d-flex">
+                <p class="mb-0">86</p>
+                <p class="ms-4 text-success mb-0">0.8%</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--/ Monthly Campaign State -->
+
+  <!-- Source Visit -->
+  <div class="col-xxl-4 col-xl-6 col-lg-12">
+    <div class="card h-100">
+      <div class="card-header d-flex justify-content-between">
+        <div class="card-title mb-0">
+          <h5 class="mb-1">Source Visits</h5>
+          <p class="card-subtitle">38.4k Visitors</p>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-text-secondary rounded-pill text-muted border-0 p-2 me-n1" type="button" id="sourceVisits" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="ti ti-dots-vertical ti-md text-muted"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="sourceVisits">
+            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+            <a class="dropdown-item" href="javascript:void(0);">Download</a>
+            <a class="dropdown-item" href="javascript:void(0);">View All</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mb-0">
+          <li class="mb-6">
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-shadow ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">Direct Source</h6>
+                  <small class="text-body">Direct link click</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">1.2k</p>
+                  <div class="ms-4 badge bg-label-success">+4.2%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6">
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-globe ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">Social Network</h6>
+                  <small class="text-body">Social Channels</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">31.5k</p>
+                  <div class="ms-4 badge bg-label-success">+8.2%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6">
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-mail ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">Email Newsletter</h6>
+                  <small class="text-body">Mail Campaigns</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">893</p>
+                  <div class="ms-4 badge bg-label-success">+2.4%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6">
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-external-link ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">Referrals</h6>
+                  <small class="text-body">Impact Radius Visits</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">342</p>
+                  <div class="ms-4 badge bg-label-danger">-0.4%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="mb-6">
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-ad ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">ADVT</h6>
+                  <small class="text-body">Google ADVT</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">2.15k</p>
+                  <div class="ms-4 badge bg-label-success">+9.1%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="d-flex align-items-center">
+              <div class="badge bg-label-secondary text-body p-2 me-4 rounded"><i class="ti ti-star ti-md"></i></div>
+              <div class="d-flex justify-content-between w-100 flex-wrap gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">Other</h6>
+                  <small class="text-body">Many Sources</small>
+                </div>
+                <div class="d-flex align-items-center">
+                  <p class="mb-0">12.5k</p>
+                  <div class="ms-4 badge bg-label-success">+6.2%</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!--/ Source Visit -->
+
+  <!-- Projects table -->
+  <div class="col-xxl-8">
+    <div class="card">
+      <div class="card-datatable table-responsive">
+        <table class="datatables-projects table table-sm">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Project</th>
+              <th>Leader</th>
+              <th>Team</th>
+              <th class="w-px-200">Progress</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/ Projects table -->
+</div>
+
+
+          </div>
+          <!-- / Content -->
+
+          
+          
+
+<!-- Footer -->
+<footer class="content-footer footer bg-footer-theme">
+  <div class="container-xxl">
+    <div class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+      <div class="text-body">
+        © <script>
+        document.write(new Date().getFullYear())
+
+        </script>, made with ❤️ by <a href="https://pixinvent.com/" target="_blank" class="footer-link">Pixinvent</a>
+      </div>
+      <div class="d-none d-lg-inline-block">
+        
+        <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank">License</a>
+        <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4">More Themes</a>
+        
+        <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
+        
+        
+        <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- / Footer -->
+
+          
+          <div class="content-backdrop fade"></div>
+        </div>
+        <!-- Content wrapper -->
+      </div>
+      <!-- / Layout page -->
     </div>
 
-    <!-- Main Content -->
-    <div class="min-h-screen bg-black relative overflow-hidden">
-        <!-- Futuristic Background Effects -->
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-black to-cyan-900/20"></div>
-        <div class="absolute inset-0">
-            <div class="absolute top-1/4 left-1/6 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute top-1/3 right-1/6 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
-            <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-        
-        <div class="relative max-w-7xl mx-auto px-6 py-10">
-            <!-- Stats Overview -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
-                <!-- Total Revenue -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-emerald-500/30 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-500 hover:scale-105">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover:rotate-12 transition-transform duration-500">
-                                <i class="fas fa-dollar-sign text-black text-2xl font-bold"></i>
-                            </div>
-                            <div class="text-right">
-                                <div class="bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/40 px-4 py-2 rounded-full">
-                                    <span class="text-emerald-300 text-sm font-bold">↗ +12.5%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <h3 class="text-emerald-300 text-sm font-bold uppercase tracking-widest">TOTAL REVENUE</h3>
-                            <p class="text-4xl font-black text-white">Rp 125.8M</p>
-                            <p class="text-emerald-400 text-base font-medium">+Rp 15.2M from last month</p>
-                        </div>
-                        <!-- Glow Effect -->
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/5 to-green-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
+    
+    
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    
+    
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+    
+  </div>
+  <!-- / Layout wrapper -->
 
-                <!-- Total Orders -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-blue-500/30 rounded-3xl p-8 hover:border-blue-400/50 transition-all duration-500 hover:scale-105">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:rotate-12 transition-transform duration-500">
-                                <i class="fas fa-shopping-cart text-black text-2xl font-bold"></i>
-                            </div>
-                            <div class="text-right">
-                                <div class="bg-blue-500/20 backdrop-blur-sm border border-blue-400/40 px-4 py-2 rounded-full">
-                                    <span class="text-blue-300 text-sm font-bold">↗ +8.2%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <h3 class="text-blue-300 text-sm font-bold uppercase tracking-widest">TOTAL ORDERS</h3>
-                            <p class="text-4xl font-black text-white">24,589</p>
-                            <p class="text-blue-400 text-base font-medium">+1,892 from last month</p>
-                        </div>
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- Active Users -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-8 hover:border-purple-400/50 transition-all duration-500 hover:scale-105">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover:rotate-12 transition-transform duration-500">
-                                <i class="fas fa-users text-black text-2xl font-bold"></i>
-                            </div>
-                            <div class="text-right">
-                                <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-400/40 px-4 py-2 rounded-full">
-                                    <span class="text-purple-300 text-sm font-bold">↗ +15.3%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <h3 class="text-purple-300 text-sm font-bold uppercase tracking-widest">ACTIVE USERS</h3>
-                            <p class="text-4xl font-black text-white">18,249</p>
-                            <p class="text-purple-400 text-base font-medium">+2,103 from last month</p>
-                        </div>
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- Conversion Rate -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-yellow-500/30 rounded-3xl p-8 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-yellow-500/30 group-hover:rotate-12 transition-transform duration-500">
-                                <i class="fas fa-chart-line text-black text-2xl font-bold"></i>
-                            </div>
-                            <div class="text-right">
-                                <div class="bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/40 px-4 py-2 rounded-full">
-                                    <span class="text-yellow-300 text-sm font-bold">↗ +3.1%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="space-y-3">
-                            <h3 class="text-yellow-300 text-sm font-bold uppercase tracking-widest">CONVERSION RATE</h3>
-                            <p class="text-4xl font-black text-white">68.4%</p>
-                            <p class="text-yellow-400 text-base font-medium">+2.1% from last month</p>
-                        </div>
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts and Analytics Section -->
-            <div class="grid grid-cols-1 xl:grid-cols-3 gap-10 mb-12">
-                <!-- Revenue Analytics -->
-                <div class="xl:col-span-2 group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-8 hover:border-cyan-400/50 transition-all duration-500">
-                        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8">
-                            <div>
-                                <h3 class="text-3xl font-black text-white mb-3">REVENUE ANALYTICS</h3>
-                                <p class="text-cyan-300 text-lg font-medium">Real-time financial performance</p>
-                            </div>
-                            <div class="mt-4 lg:mt-0">
-                                <select class="bg-black/60 backdrop-blur-sm border border-cyan-500/30 rounded-2xl px-6 py-3 text-white text-base font-medium focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all">
-                                    <option>Last 7 days</option>
-                                    <option>Last 30 days</option>
-                                    <option>Last 3 months</option>
-                                    <option>Last 6 months</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <!-- Chart Area -->
-                        <div class="relative h-96 bg-gradient-to-br from-purple-900/20 via-black/40 to-cyan-900/20 rounded-2xl border border-cyan-500/20 overflow-hidden">
-                            <!-- Grid Pattern -->
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="h-full w-full" style="background-image: linear-gradient(cyan 1px, transparent 1px), linear-gradient(90deg, cyan 1px, transparent 1px); background-size: 50px 50px;"></div>
-                            </div>
-                            
-                            <!-- Chart Placeholder with Neon Effect -->
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="text-center space-y-6">
-                                    <div class="w-24 h-24 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-3xl flex items-center justify-center mx-auto shadow-2xl shadow-cyan-500/30 animate-pulse">
-                                        <i class="fas fa-chart-area text-black text-4xl font-bold"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-white text-2xl font-bold mb-2">NEURAL CHART SYSTEM</h4>
-                                        <p class="text-cyan-300 text-lg">Advanced Analytics Engine</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Animated Glow Lines -->
-                            <div class="absolute inset-0 overflow-hidden">
-                                <div class="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse"></div>
-                                <div class="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent animate-pulse delay-500"></div>
-                                <div class="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent animate-pulse delay-1000"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Glow Effect -->
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- Right Panel -->
-                <div class="space-y-8">
-                    <!-- Top Games Performance -->
-                    <div class="group relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                        <div class="relative bg-black/80 backdrop-blur-xl border border-pink-500/30 rounded-3xl p-8 hover:border-pink-400/50 transition-all duration-500">
-                            <h3 class="text-2xl font-black text-white mb-6 tracking-wide">TOP GAMES</h3>
-                            <div class="space-y-5">
-                                <div class="bg-gradient-to-r from-blue-900/30 to-purple-900/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-5 hover:border-blue-400/40 transition-all duration-300 group/item">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover/item:rotate-12 transition-transform duration-300">
-                                                <i class="fas fa-gem text-black text-lg font-bold"></i>
-                                            </div>
-                                            <div>
-                                                <p class="text-white font-bold text-lg">Mobile Legends</p>
-                                                <p class="text-blue-300 text-sm">8,456 orders today</p>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="text-cyan-300 text-2xl font-black">68%</span>
-                                            <p class="text-gray-400 text-sm">dominance</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-5 hover:border-yellow-400/40 transition-all duration-300 group/item">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-yellow-500/30 group-hover/item:rotate-12 transition-transform duration-300">
-                                                <i class="fas fa-fire text-black text-lg font-bold"></i>
-                                            </div>
-                                            <div>
-                                                <p class="text-white font-bold text-lg">Free Fire</p>
-                                                <p class="text-yellow-300 text-sm">5,234 orders today</p>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="text-cyan-300 text-2xl font-black">21%</span>
-                                            <p class="text-gray-400 text-sm">market</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-5 hover:border-purple-400/40 transition-all duration-300 group/item">
-                                    <div class="flex items-center justify-between">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover/item:rotate-12 transition-transform duration-300">
-                                                <i class="fas fa-star text-black text-lg font-bold"></i>
-                                            </div>
-                                            <div>
-                                                <p class="text-white font-bold text-lg">PUBG Mobile</p>
-                                                <p class="text-purple-300 text-sm">3,891 orders today</p>
-                                            </div>
-                                        </div>
-                                        <div class="text-right">
-                                            <span class="text-cyan-300 text-2xl font-black">11%</span>
-                                            <p class="text-gray-400 text-sm">share</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Quick Actions -->
-                    <div class="group relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                        <div class="relative bg-black/80 backdrop-blur-xl border border-emerald-500/30 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-500">
-                            <h3 class="text-2xl font-black text-white mb-6 tracking-wide">QUICK ACTIONS</h3>
-                            <div class="grid grid-cols-2 gap-4">
-                                <a href="{{ route('admin.products') }}" class="group/action relative bg-gradient-to-br from-yellow-900/30 to-orange-900/30 backdrop-blur-sm border border-yellow-500/30 rounded-2xl p-6 hover:border-yellow-400/60 transition-all duration-300 hover:scale-105">
-                                    <div class="text-center space-y-4">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-yellow-500/30 group-hover/action:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-plus text-black text-xl font-bold"></i>
-                                        </div>
-                                        <span class="block text-white text-base font-bold">ADD PRODUCT</span>
-                                    </div>
-                                </a>
-                                
-                                <a href="{{ route('admin.users') }}" class="group/action relative bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-6 hover:border-blue-400/60 transition-all duration-300 hover:scale-105">
-                                    <div class="text-center space-y-4">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/30 group-hover/action:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-users text-black text-xl font-bold"></i>
-                                        </div>
-                                        <span class="block text-white text-base font-bold">USERS</span>
-                                    </div>
-                                </a>
-                                
-                                <a href="{{ route('admin.reports') }}" class="group/action relative bg-gradient-to-br from-emerald-900/30 to-green-900/30 backdrop-blur-sm border border-emerald-500/30 rounded-2xl p-6 hover:border-emerald-400/60 transition-all duration-300 hover:scale-105">
-                                    <div class="text-center space-y-4">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/30 group-hover/action:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-chart-bar text-black text-xl font-bold"></i>
-                                        </div>
-                                        <span class="block text-white text-base font-bold">REPORTS</span>
-                                    </div>
-                                </a>
-                                
-                                <a href="{{ route('admin.settings') }}" class="group/action relative bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-6 hover:border-purple-400/60 transition-all duration-300 hover:scale-105">
-                                    <div class="text-center space-y-4">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-purple-500/30 group-hover/action:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-cog text-black text-xl font-bold"></i>
-                                        </div>
-                                        <span class="block text-white text-base font-bold">SETTINGS</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Live Data Section -->
-            <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
-                <!-- Real-time Transactions -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-emerald-500/30 rounded-3xl p-8 hover:border-emerald-400/50 transition-all duration-500">
-                        <div class="flex items-center justify-between mb-8">
-                            <h3 class="text-3xl font-black text-white tracking-wide">LIVE TRANSACTIONS</h3>
-                            <button class="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-400/40 text-yellow-300 px-6 py-3 rounded-2xl font-bold hover:border-yellow-300/60 transition-all duration-300 hover:scale-105">
-                                VIEW ALL
-                            </button>
-                        </div>
-                        
-                        <div class="space-y-5">
-                            <!-- Success Transaction -->
-                            <div class="bg-gradient-to-r from-emerald-900/30 to-green-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6 hover:border-emerald-400/40 transition-all duration-300 group/tx">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-5">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover/tx:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-check text-black text-xl font-bold"></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-xl">ML Diamond 1000+150</p>
-                                            <p class="text-emerald-300 text-base">ID: 1234567890 | Server: 8991</p>
-                                            <p class="text-gray-400 text-sm">2 minutes ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-emerald-300 font-black text-2xl">Rp 285K</p>
-                                        <div class="bg-emerald-500/20 backdrop-blur-sm border border-emerald-400/40 px-4 py-2 rounded-full mt-2">
-                                            <span class="text-emerald-300 text-sm font-bold">SUCCESS</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Processing Transaction -->
-                            <div class="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-6 hover:border-yellow-400/40 transition-all duration-300 group/tx">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-5">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-yellow-500/30 group-hover/tx:rotate-12 transition-transform duration-300 animate-pulse">
-                                            <i class="fas fa-clock text-black text-xl font-bold"></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-xl">FF Diamond 2180</p>
-                                            <p class="text-yellow-300 text-base">ID: 987654321</p>
-                                            <p class="text-gray-400 text-sm">5 minutes ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-white font-black text-2xl">Rp 315K</p>
-                                        <div class="bg-yellow-500/20 backdrop-blur-sm border border-yellow-400/40 px-4 py-2 rounded-full mt-2">
-                                            <span class="text-yellow-300 text-sm font-bold">PROCESSING</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- High Value Transaction -->
-                            <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6 hover:border-purple-400/40 transition-all duration-300 group/tx">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-5">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/30 group-hover/tx:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-crown text-black text-xl font-bold"></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-xl">PUBG UC 8100</p>
-                                            <p class="text-purple-300 text-base">ID: 5647382910</p>
-                                            <p class="text-gray-400 text-sm">12 minutes ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-purple-300 font-black text-2xl">Rp 1.25M</p>
-                                        <div class="bg-purple-500/20 backdrop-blur-sm border border-purple-400/40 px-4 py-2 rounded-full mt-2">
-                                            <span class="text-purple-300 text-sm font-bold">VIP</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Failed Transaction -->
-                            <div class="bg-gradient-to-r from-red-900/30 to-rose-900/30 backdrop-blur-sm border border-red-500/20 rounded-2xl p-6 hover:border-red-400/40 transition-all duration-300 group/tx">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-5">
-                                        <div class="w-14 h-14 bg-gradient-to-br from-red-400 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg shadow-red-500/30 group-hover/tx:rotate-12 transition-transform duration-300">
-                                            <i class="fas fa-times text-black text-xl font-bold"></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-xl">ML Diamond 500+100</p>
-                                            <p class="text-red-300 text-base">ID: 1111222233 | Server: 8991</p>
-                                            <p class="text-gray-400 text-sm">18 minutes ago</p>
-                                        </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-gray-400 font-black text-2xl">Rp 145K</p>
-                                        <div class="bg-red-500/20 backdrop-blur-sm border border-red-400/40 px-4 py-2 rounded-full mt-2">
-                                            <span class="text-red-300 text-sm font-bold">FAILED</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Glow Effect -->
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-emerald-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- System Performance -->
-                <div class="group relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                    <div class="relative bg-black/80 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-8 hover:border-cyan-400/50 transition-all duration-500">
-                        <h3 class="text-3xl font-black text-white mb-8 tracking-wide">SYSTEM STATUS</h3>
-                        
-                        <div class="space-y-8">
-                            <!-- Server Performance -->
-                            <div class="bg-gradient-to-r from-emerald-900/30 to-green-900/30 backdrop-blur-sm border border-emerald-500/20 rounded-2xl p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <span class="text-white text-xl font-bold">Neural Server</span>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="relative">
-                                            <div class="w-4 h-4 bg-emerald-400 rounded-full"></div>
-                                            <div class="absolute inset-0 w-4 h-4 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
-                                        </div>
-                                        <span class="text-emerald-300 text-lg font-bold">OPTIMAL</span>
-                                    </div>
-                                </div>
-                                <div class="w-full bg-gray-800/50 rounded-full h-4 overflow-hidden mb-3">
-                                    <div class="bg-gradient-to-r from-emerald-400 to-green-500 h-4 rounded-full transition-all duration-1000 shadow-lg shadow-emerald-500/30" style="width: 98%"></div>
-                                </div>
-                                <p class="text-emerald-300 text-base font-medium">98% uptime - Neural network active</p>
-                            </div>
-                            
-                            <!-- API Response -->
-                            <div class="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <span class="text-white text-xl font-bold">API Response</span>
-                                    <span class="text-cyan-300 text-lg font-bold">125ms</span>
-                                </div>
-                                <div class="w-full bg-gray-800/50 rounded-full h-4 overflow-hidden mb-3">
-                                    <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-4 rounded-full transition-all duration-1000 shadow-lg shadow-blue-500/30" style="width: 85%"></div>
-                                </div>
-                                <p class="text-blue-300 text-base font-medium">Lightning fast response</p>
-                            </div>
-                            
-                            <!-- Database -->
-                            <div class="bg-gradient-to-r from-purple-900/30 to-pink-900/30 backdrop-blur-sm border border-purple-500/20 rounded-2xl p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <span class="text-white text-xl font-bold">Database Core</span>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="relative">
-                                            <div class="w-4 h-4 bg-purple-400 rounded-full"></div>
-                                            <div class="absolute inset-0 w-4 h-4 bg-purple-400 rounded-full animate-ping opacity-75"></div>
-                                        </div>
-                                        <span class="text-purple-300 text-lg font-bold">SYNCED</span>
-                                    </div>
-                                </div>
-                                <div class="w-full bg-gray-800/50 rounded-full h-4 overflow-hidden mb-3">
-                                    <div class="bg-gradient-to-r from-purple-400 to-pink-500 h-4 rounded-full transition-all duration-1000 shadow-lg shadow-purple-500/30" style="width: 92%"></div>
-                                </div>
-                                <p class="text-purple-300 text-base font-medium">Response: 45ms</p>
-                            </div>
-                            
-                            <!-- Storage -->
-                            <div class="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 backdrop-blur-sm border border-yellow-500/20 rounded-2xl p-6">
-                                <div class="flex items-center justify-between mb-4">
-                                    <span class="text-white text-xl font-bold">Quantum Storage</span>
-                                    <span class="text-yellow-300 text-lg font-bold">68%</span>
-                                </div>
-                                <div class="w-full bg-gray-800/50 rounded-full h-4 overflow-hidden mb-3">
-                                    <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full transition-all duration-1000 shadow-lg shadow-yellow-500/30" style="width: 68%"></div>
-                                </div>
-                                <p class="text-yellow-300 text-base font-medium">34.2GB of 50GB used</p>
-                            </div>
-
-                            <!-- Neural Activity Log -->
-                            <div class="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-500/20 rounded-2xl p-6">
-                                <h4 class="text-white font-black text-xl mb-5 tracking-wide">NEURAL ACTIVITY</h4>
-                                <div class="space-y-4">
-                                    <div class="flex items-center space-x-4 text-base">
-                                        <div class="w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-500/30"></div>
-                                        <span class="text-emerald-300 font-medium">Quantum backup synchronized</span>
-                                        <span class="text-gray-400 ml-auto">2m ago</span>
-                                    </div>
-                                    <div class="flex items-center space-x-4 text-base">
-                                        <div class="w-3 h-3 bg-blue-400 rounded-full animate-pulse shadow-lg shadow-blue-500/30"></div>
-                                        <span class="text-blue-300 font-medium">Neural user authenticated</span>
-                                        <span class="text-gray-400 ml-auto">5m ago</span>
-                                    </div>
-                                    <div class="flex items-center space-x-4 text-base">
-                                        <div class="w-3 h-3 bg-purple-400 rounded-full animate-pulse shadow-lg shadow-purple-500/30"></div>
-                                        <span class="text-purple-300 font-medium">Cache matrix optimized</span>
-                                        <span class="text-gray-400 ml-auto">12m ago</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Glow Effect -->
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+    <div class="buy-now">
+      <a href="https://1.envato.market/vuexy_admin" target="_blank" class="btn btn-danger btn-buy-now">Buy Now</a>
     </div>
-
-<!-- JavaScript -->
-<script>
-// Futuristic Cyberpunk Admin Dashboard JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    // Neural Real-time Clock System
-    function updateQuantumClock() {
-        const now = new Date();
-        const timeOptions = {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false
-        };
-        const dateOptions = {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-        };
-        
-        const timeString = now.toLocaleTimeString('en-US', timeOptions);
-        const dateString = now.toLocaleDateString('en-US', dateOptions);
-        
-        // Update clock element
-        const clockElement = document.getElementById('current-time');
-        if (clockElement) {
-            clockElement.innerHTML = timeString;
-        }
-    }
-
-    // Neural Progress Animation System
-    function animateNeuralProgress() {
-        const progressBars = document.querySelectorAll('.neural-progress-bar');
-        progressBars.forEach((bar, index) => {
-            setTimeout(() => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                    bar.style.transition = 'width 2s cubic-bezier(0.4, 0, 0.2, 1)';
-                }, 100);
-            }, index * 200);
-        });
-    }
-
-    // Holographic Card Interaction System
-    function initHolographicCards() {
-        const cards = document.querySelectorAll('.holo-card');
-        
-        cards.forEach(card => {
-            let isHovering = false;
-            
-            card.addEventListener('mouseenter', function() {
-                isHovering = true;
-                this.style.transform = 'translateY(-12px) scale(1.03)';
-                this.style.boxShadow = '0 25px 50px rgba(6, 182, 212, 0.3), 0 0 30px rgba(139, 92, 246, 0.2)';
-                
-                // Add energy ripple effect
-                const ripple = document.createElement('div');
-                ripple.className = 'absolute inset-0 border-2 border-cyan-400/30 rounded-3xl animate-ping pointer-events-none';
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    if (ripple.parentNode) {
-                        ripple.remove();
-                    }
-                }, 1000);
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                isHovering = false;
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-            });
-        });
-    }
-
-    // Quantum Button Enhancement System
-    function enhanceQuantumButtons() {
-        const buttons = document.querySelectorAll('.quantum-btn');
-        
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Create quantum ripple effect
-                const ripple = document.createElement('div');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.className = 'absolute rounded-full bg-cyan-400/30 animate-ping pointer-events-none';
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-                
-                // Add button feedback
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
-    }
-
-    // Live Transaction Stream Simulation
-    function simulateLiveTransactions() {
-        const transactionContainer = document.querySelector('.space-y-4.max-h-80.overflow-y-auto');
-        if (!transactionContainer) return;
-
-        const gameTypes = [
-            { name: 'ML Diamond Purchase', amount: 25.99, status: 'COMPLETED', color: 'emerald' },
-            { name: 'PUBG UC Top-up', amount: 19.99, status: 'PROCESSING', color: 'yellow' },
-            { name: 'Free Fire Diamonds', amount: 15.99, status: 'COMPLETED', color: 'purple' },
-            { name: 'Genshin Impact', amount: 49.99, status: 'COMPLETED', color: 'cyan' },
-            { name: 'Honor of Kings', amount: 29.99, status: 'PROCESSING', color: 'pink' },
-            { name: 'Call of Duty Mobile', amount: 39.99, status: 'COMPLETED', color: 'emerald' }
-        ];
-
-        function addNewTransaction() {
-            const game = gameTypes[Math.floor(Math.random() * gameTypes.length)];
-            const userId = Math.floor(Math.random() * 9999) + 1000;
-            const timeAgo = ['Just now', '1 min ago', '2 min ago'][Math.floor(Math.random() * 3)];
-
-            const transactionHTML = `
-                <div class="bg-gradient-to-r from-black/50 to-gray-900/30 rounded-xl p-4 border border-${game.color}-500/20 hover:border-${game.color}-500/50 transition-all duration-300 opacity-0 transform translate-y-4">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-3 h-3 bg-${game.color}-500 rounded-full animate-pulse shadow-lg shadow-${game.color}-500/50"></div>
-                            <div>
-                                <p class="text-white font-medium">${game.name}</p>
-                                <p class="text-gray-400 text-sm">User #${userId} • ${timeAgo}</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-${game.color}-400 font-bold">+$${game.amount}</p>
-                            <p class="text-xs ${game.status === 'COMPLETED' ? 'text-gray-500' : 'text-' + game.color + '-500'}">${game.status}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Remove oldest transaction if more than 5
-            const transactions = transactionContainer.children;
-            if (transactions.length >= 5) {
-                const lastTransaction = transactions[transactions.length - 1];
-                lastTransaction.style.opacity = '0';
-                lastTransaction.style.transform = 'translateX(-100%)';
-                setTimeout(() => {
-                    if (lastTransaction.parentNode) {
-                        lastTransaction.remove();
-                    }
-                }, 300);
-            }
-
-            // Add new transaction at the top
-            transactionContainer.insertAdjacentHTML('afterbegin', transactionHTML);
-            
-            // Animate in
-            const newTransaction = transactionContainer.firstElementChild;
-            setTimeout(() => {
-                newTransaction.style.opacity = '1';
-                newTransaction.style.transform = 'translate(0)';
-                newTransaction.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-            }, 100);
-        }
-
-        // Add new transaction every 10-15 seconds
-        setInterval(addNewTransaction, 10000 + Math.random() * 5000);
-    }
-
-    // System Performance Real-time Updates
-    function updateSystemPerformance() {
-        const metrics = [
-            { name: 'CPU Cores', element: null, min: 15, max: 35 },
-            { name: 'Neural Memory', element: null, min: 60, max: 75 },
-            { name: 'Network Bandwidth', element: null, min: 40, max: 55 },
-            { name: 'Quantum Storage', element: null, min: 80, max: 88 }
-        ];
-
-        setInterval(() => {
-            const progressBars = document.querySelectorAll('.neural-progress-bar');
-            progressBars.forEach((bar, index) => {
-                if (metrics[index]) {
-                    const metric = metrics[index];
-                    const newValue = (metric.min + Math.random() * (metric.max - metric.min)).toFixed(1);
-                    bar.style.width = newValue + '%';
-                    
-                    // Update percentage text
-                    const parentDiv = bar.closest('.space-y-6 > div');
-                    if (parentDiv) {
-                        const valueSpan = parentDiv.querySelector('.text-white.font-bold');
-                        if (valueSpan) {
-                            valueSpan.textContent = newValue + '%';
-                        }
-                    }
-                }
-            });
-        }, 4000);
-    }
-
-    // Parallax Effect for Background Orbs
-    function initParallaxEffect() {
-        const orbs = document.querySelectorAll('.absolute.inset-0 > div');
-        
-        document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 0.3;
-                const x = (mouseX - 0.5) * speed * 15;
-                const y = (mouseY - 0.5) * speed * 15;
-                
-                orb.style.transform = `translate(${x}px, ${y}px)`;
-                orb.style.transition = 'transform 0.3s ease-out';
-            });
-        });
-    }
-
-    // Terminal-like Console Effects
-    function initConsoleEffects() {
-        console.log('%c⚡ QUANTUM ADMIN DASHBOARD INITIALIZED ⚡', 'color: #06b6d4; font-size: 16px; font-weight: bold; text-shadow: 0 0 10px #06b6d4;');
-        console.log('%c🔮 Neural Networks: ONLINE', 'color: #8b5cf6; font-size: 14px; text-shadow: 0 0 5px #8b5cf6;');
-        console.log('%c🌐 Data Streams: ACTIVE', 'color: #10b981; font-size: 14px; text-shadow: 0 0 5px #10b981;');
-        console.log('%c⭐ Cyberpunk Mode: ENGAGED', 'color: #f59e0b; font-size: 14px; text-shadow: 0 0 5px #f59e0b;');
-        console.log('%cSystem Status: All neural pathways operational. Welcome to the future.', 'color: #06b6d4; font-style: italic;');
-    }
-
-    // Initialize All Quantum Systems
-    updateQuantumClock();
-    setInterval(updateQuantumClock, 1000);
     
-    setTimeout(() => {
-        animateNeuralProgress();
-        initHolographicCards();
-        enhanceQuantumButtons();
-        simulateLiveTransactions();
-        updateSystemPerformance();
-        initParallaxEffect();
-        initConsoleEffects();
-    }, 800);
 
-    // Re-animate progress bars on visibility change
-    document.addEventListener('visibilitychange', () => {
-        if (!document.hidden) {
-            setTimeout(animateNeuralProgress, 1000);
-        }
-    });
-
-    // Add smooth scroll behavior
-    document.documentElement.style.scrollBehavior = 'smooth';
-});
-
-// Expose Quantum Dashboard API
-window.QuantumDashboard = {
-    version: '2.1.0',
-    mode: 'CYBERPUNK_NEURAL',
-    status: 'OPERATIONAL',
-    theme: 'FUTURISTIC_DARK'
-};
-</script>
-
-<style>
-/* Futuristic Cyberpunk Admin Dashboard Styles */
-
-/* Custom Scrollbar - Neon Style */
-.custom-scrollbar::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 6px;
-    border: 1px solid rgba(6, 182, 212, 0.2);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #06b6d4, #8b5cf6);
-    border-radius: 6px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #0891b2, #7c3aed);
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
-}
-
-/* Neural Network Animations */
-@keyframes neuralPulse {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-}
-
-@keyframes dataStream {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-
-@keyframes holographicGlow {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 60px rgba(6, 182, 212, 0.3);
-    }
-}
-
-@keyframes quantumFloat {
-    0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-    33% {
-        transform: translateY(-10px) rotate(120deg);
-    }
-    66% {
-        transform: translateY(5px) rotate(240deg);
-    }
-}
-
-@keyframes matrixRain {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-@keyframes energyRipple {
-    0% {
-        transform: scale(0.8);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2.5);
-        opacity: 0;
-    }
-}
-
-/* Neural Background Effect */
-.neural-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-    animation: neuralPulse 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-/* Holographic Cards */
-.holo-card {
-    position: relative;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    border-radius: 24px;
-    overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.holo-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.1), transparent);
-    animation: dataStream 3s ease-in-out infinite;
-}
-
-.holo-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(6, 182, 212, 0.6);
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(6, 182, 212, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Quantum Buttons */
-.quantum-btn {
-    position: relative;
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(139, 92, 246, 0.2));
-    border: 1px solid rgba(6, 182, 212, 0.4);
-    border-radius: 16px;
-    padding: 16px 24px;
-    color: #ffffff;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.quantum-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.quantum-btn:hover::before {
-    left: 100%;
-}
-
-.quantum-btn:hover {
-    transform: translateY(-2px);
-    border-color: rgba(6, 182, 212, 0.8);
-    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
-}
-
-/* Neural Progress Bars */
-.neural-progress {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.neural-progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    animation: dataStream 2s ease-in-out infinite;
-}
-
-.neural-progress-bar {
-    height: 100%;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
-}
-
-.neural-progress-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent, rgba(255, 255, 255, 0.1));
-    animation: dataStream 1.5s ease-in-out infinite;
-}
-
-/* Quantum Text Effects */
-.quantum-text {
-    background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: matrixRain 3s ease-in-out infinite;
-}
-
-/* Energy Rings */
-.energy-ring {
-    position: relative;
-}
-
-.energy-ring::before,
-.energy-ring::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    border: 2px solid rgba(6, 182, 212, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: energyRipple 2s ease-out infinite;
-}
-
-.energy-ring::after {
-    animation-delay: 1s;
-    border-color: rgba(139, 92, 246, 0.3);
-}
-
-/* Holographic Status Indicators */
-.status-indicator {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.status-indicator::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #10b981, #059669);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
-    animation: neuralPulse 2s ease-in-out infinite;
-}
-
-/* Neural Grid Pattern */
-.neural-grid {
-    background-image: 
-        linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: matrixRain 10s linear infinite;
-}
-
-/* Cyberpunk Glow Text */
-.cyber-glow {
-    text-shadow: 
-        0 0 5px rgba(6, 182, 212, 0.5),
-        0 0 10px rgba(6, 182, 212, 0.3),
-        0 0 15px rgba(6, 182, 212, 0.2);
-}
-
-/* Responsive Quantum Effects */
-@media (max-width: 768px) {
-    .holo-card:hover {
-        transform: translateY(-4px) scale(1.01);
-    }
     
-    .quantum-btn {
-        padding: 12px 20px;
-        font-size: 14px;
-    }
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
     
-    .neural-progress {
-        height: 12px;
-    }
-}
+    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/node-waves/node-waves.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 
-/* Performance Optimizations */
-.will-change-transform {
-    will-change: transform;
-}
+    <!-- endbuild -->
 
-.hardware-accel {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
+    <!-- Vendors JS -->
+    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/swiper/swiper.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
 
-/* Dark Theme Scrollbar for Body */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(6, 182, 212, 0.6) rgba(0, 0, 0, 0.8);
-}
+    <!-- Main JS -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
+    
 
-body::-webkit-scrollbar {
-    width: 12px;
-}
+    <!-- Page JS -->
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
-body::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.8);
-}
+  </body>
 
-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #06b6d4, #8b5cf6);
-    border-radius: 6px;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-}
 
-body::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #0891b2, #7c3aed);
-}
+<!-- Mirrored from demos.pixinvent.com/vuexy-html-admin-template/html/vertical-menu-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Sep 2024 17:45:08 GMT -->
+</html>
 
-/* Advanced Focus States */
-.focus-quantum:focus {
-    outline: none;
-    border-color: rgba(6, 182, 212, 0.8);
-    box-shadow: 
-        0 0 0 3px rgba(6, 182, 212, 0.2),
-        0 0 20px rgba(6, 182, 212, 0.3);
-}
+<!-- beautify ignore:end -->
 
-/* Neural Loading Animation */
-@keyframes neuralLoad {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.neural-spinner {
-    border: 3px solid rgba(6, 182, 212, 0.3);
-    border-top: 3px solid #06b6d4;
-    border-radius: 50%;
-    animation: neuralLoad 1s linear infinite;
-}
-</style>
-@endsection
