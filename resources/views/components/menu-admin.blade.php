@@ -9,7 +9,7 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z" fill="#7367F0" />
       </svg>
       </span>
-      <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+      <span class="app-brand-text demo menu-text fw-bold">PI TOPUP</span>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -21,22 +21,223 @@
   <div class="menu-inner-shadow"></div>
   
   <ul class="menu-inner py-1">
-    <!-- Dashboards -->
-    <li class="menu-item active">
+    <!-- Dashboard -->
+    <li class="menu-item {{ Request::routeIs('admin.dashboard') ? 'active' : '' }}">
       <a href="{{ route('admin.dashboard') }}" class="menu-link">
         <i class="menu-icon tf-icons ti ti-smart-home"></i>
-        <div data-i18n="Dashboards">Dashboards</div>
+        <div data-i18n="Dashboard">Dashboard</div>
       </a>
     </li>
 
-    <!-- Apps & Pages -->
+    <!-- Transactions -->
     <li class="menu-header small">
-      <span class="menu-header-text" data-i18n="Apps & Pages">Apps &amp; Pages</span>
+      <span class="menu-header-text" data-i18n="Transactions">Transaksi</span>
     </li>
-    <li class="menu-item">
-      <a href="app-email.html" class="menu-link">
-        <i class="menu-icon tf-icons ti ti-mail"></i>
-        <div data-i18n="Email">Email</div>
+    <li class="menu-item {{ Request::routeIs('admin.transactions*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-credit-card"></i>
+        <div data-i18n="Transactions">Transaksi</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.transactions.index') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="All Transactions">Semua Transaksi</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.transactions.pending') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Pending">Pending</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.transactions.success') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Success">Berhasil</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.transactions.failed') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Failed">Gagal</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Products & Games -->
+    <li class="menu-header small">
+      <span class="menu-header-text" data-i18n="Products">Produk</span>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.games*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-device-gamepad-2"></i>
+        <div data-i18n="Games">Game</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.games.index') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="All Games">Semua Game</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.games.mobile') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Mobile Games">Game Mobile</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.games.pc') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="PC Games">Game PC</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.games.console') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Console Games">Game Console</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.products*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-package"></i>
+        <div data-i18n="Products">Produk</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.products.index') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="All Products">Semua Produk</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.products.diamonds') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Diamonds">Diamonds</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.products.uc') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="UC">UC</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.products.vp') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="VP">VP</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Users & Management -->
+    <li class="menu-header small">
+      <span class="menu-header-text" data-i18n="Management">Manajemen</span>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.users*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-users"></i>
+        <div data-i18n="Users">Users</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.users.index') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="All Users">Semua Users</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.users.active') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Active Users">Users Aktif</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.users.banned') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Banned Users">Users Banned</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.payments*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-wallet"></i>
+        <div data-i18n="Payment Methods">Metode Pembayaran</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.payments.index') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="All Methods">Semua Metode</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.payments.bank') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Bank Transfer">Transfer Bank</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.payments.ewallet') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="E-Wallet">E-Wallet</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.payments.pulsa') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Pulsa">Pulsa</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Reports & Analytics -->
+    <li class="menu-header small">
+      <span class="menu-header-text" data-i18n="Reports">Laporan</span>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.reports*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-chart-bar"></i>
+        <div data-i18n="Reports">Laporan</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.reports.revenue') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Revenue">Revenue</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.reports.transactions') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Transaction Reports">Laporan Transaksi</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.reports.popular-games') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Popular Games">Game Populer</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- Settings -->
+    <li class="menu-header small">
+      <span class="menu-header-text" data-i18n="Settings">Pengaturan</span>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.settings*') ? 'active' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-settings"></i>
+        <div data-i18n="Settings">Pengaturan</div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ Request::routeIs('admin.settings.general') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="General">Umum</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.settings.api') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="API Settings">Pengaturan API</div>
+          </a>
+        </li>
+        <li class="menu-item {{ Request::routeIs('admin.settings.notifications') ? 'active' : '' }}">
+          <a href="#" class="menu-link">
+            <div data-i18n="Notifications">Notifikasi</div>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item {{ Request::routeIs('admin.support*') ? 'active' : '' }}">
+      <a href="#" class="menu-link">
+        <i class="menu-icon tf-icons ti ti-headset"></i>
+        <div data-i18n="Support">Support</div>
       </a>
     </li>
   </ul>

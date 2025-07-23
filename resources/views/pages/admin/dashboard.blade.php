@@ -496,7 +496,7 @@
       <div class="card-body">
         <div id="totalEarningChart"></div>
         <div class="d-flex align-items-start my-4">
-          <div class="badge rounded bg-label-primary p-2 me-4 rounded"><i class="ti ti-brand-paypal ti-md"></i></div>
+          <div class="badge bg-label-primary p-2 me-4 rounded"><i class="ti ti-brand-paypal ti-md"></i></div>
           <div class="d-flex justify-content-between w-100 gap-2 align-items-center">
             <div class="me-2">
               <h6 class="mb-0">Total Revenue</h6>
@@ -506,7 +506,7 @@
           </div>
         </div>
         <div class="d-flex align-items-start">
-          <div class="badge rounded bg-label-secondary p-2 me-4 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
+          <div class="badge bg-label-secondary p-2 me-4 rounded"><i class="ti ti-currency-dollar ti-md"></i></div>
           <div class="d-flex justify-content-between w-100 gap-2 align-items-center">
             <div class="me-2">
               <h6 class="mb-0">Total Sales</h6>
